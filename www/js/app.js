@@ -28,6 +28,13 @@
                 templateUrl   : 'templates/home.html',
                 controller    : 'HomeCtrl',
                 controllerAs  : 'home'
+           })
+           .state({
+                name          : 'picValidate',
+                url           : '/pic-validate',
+                templateUrl   : 'templates/pic-validate.html',
+                controller    : 'PicValidateCtrl',
+                controllerAs  : 'picValidate'
            });
 
       $urlRouterProvider.otherwise('home');

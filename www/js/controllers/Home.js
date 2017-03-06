@@ -5,7 +5,7 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera) {
+  function HomeCtrl ($cordovaCamera, $state, $rootScope) {
     const home = this;
 
     home.takePicture = _ => {
@@ -22,7 +22,8 @@
         };
  
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            home.imgURI = "data:image/jpeg;base64," + imageData;
+            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            $state.go('picValidate');
         }, function(err) {
             // An error occured. Show a message to the user
         });
@@ -30,6 +31,6 @@
 
   };
 
-  HomeCtrl.$inject = ['$cordovaCamera'];
+  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
 
 })();

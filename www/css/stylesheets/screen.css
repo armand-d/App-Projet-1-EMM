@@ -69,20 +69,28 @@ body {
   font-family: 'Arial';
 }
 
-/* line 8, ../sass/screen.scss */
-#logo {
-  padding: 1.5rem 0;
-}
-
-/* line 12, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 h2 {
   font-family: 'Oleo Script', cursive;
   font-size: 20px;
   padding: 1.5rem 0;
 }
 
-/* line 18, ../sass/screen.scss */
-.text-home {
+/* line 15, ../sass/screen.scss */
+.title {
+  font-family: 'Oleo Script', cursive;
+}
+
+/* line 20, ../sass/screen.scss */
+.home #logo {
+  padding: 2rem 0;
+}
+/* line 22, ../sass/screen.scss */
+.home #logo img {
+  width: 100px;
+}
+/* line 26, ../sass/screen.scss */
+.home .text-home {
   font-size: 12px;
   line-height: 15px;
   color: #A1A1A1;
