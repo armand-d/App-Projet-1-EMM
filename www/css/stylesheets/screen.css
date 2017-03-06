@@ -98,6 +98,7 @@ h2 {
 
 /* line 34, ../sass/screen.scss */
 .pic-validate img {
-  padding: 3rem 0 0 0;
+  margin: 3rem 0 0 0;
   width: 100%;
+  box-shadow: 4px 4px 4px #999;
 }

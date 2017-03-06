@@ -35,6 +35,13 @@
                 templateUrl   : 'templates/pic-validate.html',
                 controller    : 'PicValidateCtrl',
                 controllerAs  : 'picValidate'
+           })
+           .state({
+                name          : 'choseIcon',
+                url           : '/chose-icon',
+                templateUrl   : 'templates/chose-icon.html',
+                controller    : 'ChoseIconCtrl',
+                controllerAs  : 'choseIcon'
            });
 
       $urlRouterProvider.otherwise('home');

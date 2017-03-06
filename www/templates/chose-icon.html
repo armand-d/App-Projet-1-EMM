@@ -1,0 +1,22 @@
+<!-- Chose icon Content -->
+<ion-view view-title="Chose icon">
+	<ion-header-bar align-title="center" class="bar-positive">
+  		<h1 class="title">funpic</h1>
+	</ion-header-bar>
+    <ion-content class="padding home">
+		<div class="list">
+			<div class="item item-divider">
+		    	Moustaches
+		  	</div>
+			<li class="item item-toggle" collection-repeat="item in choseIcon.mustaches">
+				{{ item }}
+				<label class="toggle toggle-positive">
+					<input type="checkbox">
+					<div class="track">
+				 		<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+		</div>
+	</ion-content>
+</ion-view>

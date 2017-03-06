@@ -8,7 +8,11 @@
   function PicValidateCtrl ($state, $rootScope) {
     const picValidate = this;
 
-    picValidate.back = _ => {
+    picValidate.goChoseIcon = _ => {
+    	$state.go('choseIcon');
+    }
+
+    picValidate.backHome = _ => {
     	$state.go('home');
     }
 

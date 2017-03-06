@@ -1,22 +1,22 @@
 <!-- Pic validate Content -->
-<div class="bar bar-header bar-positive">
-  <h1 class="title">funpics</h1>
-</div>
 <ion-view view-title="pic validate">
-     <ion-content class="padding pic-validate">
+     <ion-header-bar align-title="center" class="bar-positive">
+          <h1 class="title">funpic</h1>
+     </ion-header-bar>
+     <ion-pane class="padding pic-validate">
           <div class="row row-center">
                <div class="col text-center padding">
-                    <!-- <img ng-src="img/test.png" alt=""> -->
-				<img ng-src="{{imgURI}}" alt="">
+                    <!-- <img ng-src="img/test.png"> -->
+				<img ng-src="{{imgURI}}">
                </div>
           </div>
           <div class="row">
                <div class="col">
                     <h2 class="text-center">Cette photo vous plait ?</h2>
-                    <button class="button button-block icon ion-checkmark button-balanced"></button>
-                    <button class="button button-block icon ion-close button-assertive" ng-click="picValidate.back()"></button>
+                    <button class="button button-block icon ion-checkmark button-balanced" ng-click="picValidate.goChoseIcon()"></button>
+                    <button class="button button-block icon ion-close button-assertive" ng-click="picValidate.backHome()"></button>
                </div>
           </div>
-     </ion-content>
+     </ion-pane>
 </ion-view>
 
