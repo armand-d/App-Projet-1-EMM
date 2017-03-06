@@ -6,14 +6,15 @@
      <ion-content class="padding pic-validate">
           <div class="row row-center">
                <div class="col text-center padding">
-					<img ng-src="{{imgURI}}" alt="">
+                    <!-- <img ng-src="img/test.png" alt=""> -->
+				<img ng-src="{{imgURI}}" alt="">
                </div>
           </div>
           <div class="row">
                <div class="col">
                     <h2 class="text-center">Cette photo vous plait ?</h2>
                     <button class="button button-block icon ion-checkmark button-balanced"></button>
-                    <button class="button button-block icon ion-close button-assertive"></button>
+                    <button class="button button-block icon ion-close button-assertive" ng-click="picValidate.back()"></button>
                </div>
           </div>
      </ion-content>

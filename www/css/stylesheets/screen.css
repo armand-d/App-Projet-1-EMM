@@ -95,3 +95,9 @@ h2 {
   line-height: 15px;
   color: #A1A1A1;
 }
+
+/* line 34, ../sass/screen.scss */
+.pic-validate img {
+  padding: 3rem 0 0 0;
+  width: 100%;
+}

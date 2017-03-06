@@ -8,7 +8,10 @@
   function PicValidateCtrl ($state, $rootScope) {
     const picValidate = this;
 
-    console.log($rootScope.imgURI);
+    picValidate.back = _ => {
+    	$state.go('home');
+    }
+
   };
 
   PicValidateCtrl.$inject = ['$state', '$rootScope'];

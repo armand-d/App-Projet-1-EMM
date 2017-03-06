@@ -29,6 +29,27 @@
         });
     }
 
+    home.takeLibrary = _ => {
+        var options = { 
+            quality : 75, 
+            destinationType : Camera.DestinationType.DATA_URL, 
+            sourceType : Camera.PictureSourceType.PHOTOLIBRARY, 
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+ 
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            $state.go('picValidate');
+        }, function(err) {
+            // An error occured. Show a message to the user
+        });
+    }
+
   };
 
   HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
