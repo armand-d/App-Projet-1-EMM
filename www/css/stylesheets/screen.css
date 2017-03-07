@@ -117,3 +117,12 @@ h2 {
   margin: 0 auto;
   display: block;
 }
+.chose-icon .button-go {
+     font-weight: 900;
+}
+
+.pic-custom img {
+  margin: 3rem 0 0 0;
+  width: 100%;
+  box-shadow: 4px 4px 4px #999;
+}

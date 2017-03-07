@@ -8,7 +8,7 @@
   function ChoseIconCtrl ($state) {
     const choseIcon = this;
 
-    // Data à mettre dans un autre fichier 
+    // Data à mettre dans un autre fichier
     choseIcon.data = {
       mustaches : {
         title : 'Moustache',
@@ -20,8 +20,15 @@
       hats : {
         title : 'Chapeaux',
         data : {
-          hat_1: {id: 1, url:'img/icons/mustache_1.svg'},
-          hat_2: {id: 2,url:'img/icons/mustache_2.svg'},
+          hat_1: {id: 3, url:'img/icons/chapeau_1.svg'},
+          hat_2: {id: 4,url:'img/icons/chapeau_2.svg'},
+        }
+      },
+      glasses : {
+        title : 'Lunettes',
+        data : {
+          glasses_1: {id: 5, url:'img/icons/lunette_1.svg'},
+          glasses_2: {id: 6, url:'img/icons/lunette_2.svg'},
         }
       }
     };
@@ -37,6 +44,10 @@
 
     choseIcon.back = _ => {
       $state.go('picValidate');
+    }
+
+    choseIcon.goPicCustom = _ => {
+      $state.go('picCustom');
     }
 
   };

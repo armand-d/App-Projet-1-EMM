@@ -5,14 +5,14 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera, $state, $rootScope) {
+  function HomeCtrl ($cordovaCamera, $state, $rootScope, funpicsService) {
     const home = this;
 
     home.takePicture = _ => {
-        
-    	options = { 
-            quality         : 75, 
-            destinationType : Camera.DestinationType.DATA_URL, 
+
+    	options = {
+            quality         : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
             allowEdit       : true,
             sourceType      : Camera.PictureSourceType.CAMERA,
             encodingType    : Camera.EncodingType.JPEG,
@@ -32,9 +32,9 @@
 
     home.takeLibrary = _ => {
 
-        options = { 
-            quality         : 75, 
-            destinationType : Camera.DestinationType.DATA_URL, 
+        options = {
+            quality         : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
             allowEdit       : true,
             sourceType      : Camera.PictureSourceType.PHOTOLIBRARY,
             encodingType    : Camera.EncodingType.JPEG,
@@ -43,7 +43,7 @@
             popoverOptions  : CameraPopoverOptions,
             saveToPhotoAlbum: false
         };
- 
+
         $cordovaCamera.getPicture(options).then(function(imageData) {
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('picValidate');
@@ -54,6 +54,6 @@
 
   };
 
-  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
+  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', 'funpicsService'];
 
 })();

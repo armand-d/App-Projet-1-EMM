@@ -42,6 +42,13 @@
                 templateUrl   : 'templates/chose-icon.html',
                 controller    : 'ChoseIconCtrl',
                 controllerAs  : 'choseIcon'
+           })
+           .state({
+               name           : 'picCustom',
+               url            : '/pic-custom',
+               templateUrl    : 'templates/pic-custom.html',
+               controller     : 'PicCustomCtrl',
+               controllerAs   : 'picCustom' 
            });
 
       $urlRouterProvider.otherwise('home');

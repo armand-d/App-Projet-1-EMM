@@ -9,11 +9,11 @@
     const picValidate = this;
 
     picValidate.goChoseIcon = _ => {
-    	$state.go('choseIcon');
+         $state.go('choseIcon');
     }
 
     picValidate.backHome = _ => {
-    	$state.go('home');
+         $state.go('home');
     }
 
   };
