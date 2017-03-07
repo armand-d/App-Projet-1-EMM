@@ -5,7 +5,7 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera, $state, $rootScope, funpicsService) {
+  function HomeCtrl ($cordovaCamera, $state, $rootScope) {
     const home = this;
 
     home.takePicture = _ => {
@@ -54,6 +54,6 @@
 
   };
 
-  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', 'funpicsService'];
+  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
 
 })();

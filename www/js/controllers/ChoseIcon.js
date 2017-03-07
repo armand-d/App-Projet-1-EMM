@@ -5,13 +5,13 @@
     .module('funpics')
     .controller('ChoseIconCtrl', ChoseIconCtrl);
 
-  function ChoseIconCtrl ($state) {
+  function ChoseIconCtrl ($state, detectService, $rootScope) {
     const choseIcon = this;
 
     // Data à mettre dans un autre fichier
     choseIcon.data = {
       mustaches : {
-        title : 'Moustache',
+        title : 'Moustaches',
         data : {
           mustache_1: {id: 1, url:'img/icons/mustache_1.svg'},
           mustache_2: {id: 2,url:'img/icons/mustache_2.svg'},
@@ -48,10 +48,19 @@
 
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
+      choseIcon.img = $rootScope.imgURI;
+
+
+      detectService.detect(choseIcon.img).then(function(response){
+          choseIcon.ready = response.data;
+          console.log(choseIcon.ready);
+      });
+
+
     }
 
   };
 
-  ChoseIconCtrl.$inject = ['$state'];
+  ChoseIconCtrl.$inject = ['$state', 'detectService', '$rootScope'];
 
 })();
