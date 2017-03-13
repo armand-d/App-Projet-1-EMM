@@ -70,20 +70,59 @@ body {
 }
 
 /* line 8, ../sass/screen.scss */
-#logo {
-  padding: 1.5rem 0;
-}
-
-/* line 12, ../sass/screen.scss */
 h2 {
   font-family: 'Oleo Script', cursive;
   font-size: 20px;
   padding: 1.5rem 0;
 }
 
-/* line 18, ../sass/screen.scss */
-.text-home {
+/* line 14, ../sass/screen.scss */
+.title {
+  font-size: 30px !important;
+  font-family: 'Oleo Script', cursive;
+}
+
+/* line 19, ../sass/screen.scss */
+.ion-chevron-left {
+  font-size: 20px;
+  padding: 8px;
+}
+
+/* line 25, ../sass/screen.scss */
+.home #logo {
+  padding: 2rem 0;
+}
+/* line 27, ../sass/screen.scss */
+.home #logo img {
+  width: 100px;
+}
+/* line 31, ../sass/screen.scss */
+.home .text-home {
   font-size: 12px;
   line-height: 15px;
   color: #A1A1A1;
+}
+
+/* line 39, ../sass/screen.scss */
+.pic-validate img {
+  margin: 3rem 0 0 0;
+  width: 100%;
+  box-shadow: 4px 4px 4px #999;
+}
+
+/* line 47, ../sass/screen.scss */
+.chose-icon img {
+  width: 100px;
+  min-height: 50px;
+  margin: 0 auto;
+  display: block;
+}
+.chose-icon .button-go {
+     font-weight: 900;
+}
+
+.pic-custom img {
+  margin: 3rem 0 0 0;
+  width: 100%;
+  box-shadow: 4px 4px 4px #999;
 }

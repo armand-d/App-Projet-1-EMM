@@ -5,18 +5,60 @@ body {
      font-family: 'Arial';
 }
 
-#logo {
-     padding: 1.5rem 0;
-}
-
 h2 {
      font-family: 'Oleo Script', cursive;
      font-size: 20px;
      padding: 1.5rem 0;
 }
 
-.text-home {
-     font-size: 12px;
-     line-height: 15px;
-     color: #A1A1A1;
+.title {
+	font-size: 30px!important;
+    font-family: 'Oleo Script', cursive;
+}
+
+.ion-chevron-left {
+	font-size: 20px;
+	padding: 8px;
+}
+
+.home {
+	#logo {
+	     padding: 2rem 0;
+	     img {
+	     	width: 100px;
+	     }
+	}
+	.text-home {
+	     font-size: 12px;
+	     line-height: 15px;
+	     color: #A1A1A1;
+	}
+}
+
+.pic-validate {
+	img {
+		margin: 3rem 0 0 0;
+	    width: 100%;
+	    box-shadow: 4px 4px 4px #999;
+	}
+}
+
+.chose-icon {
+	img {
+		width: 100px;
+		min-height: 50px;
+	    margin: 0 auto;
+	    display: block;
+	}
+     .button-go {
+          font-weight: 900;
+     }
+}
+
+.pic-custom {
+     img {
+          margin: 3rem 0 0 0;
+          width: 100%;
+          box-shadow: 4px 4px 4px #999;
+     }
 }

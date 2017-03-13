@@ -5,31 +5,56 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera) {
+  function HomeCtrl ($cordovaCamera, $state, $rootScope) {
     const home = this;
 
     home.takePicture = _ => {
-    	var options = { 
-            quality : 75, 
-            destinationType : Camera.DestinationType.DATA_URL, 
-            sourceType : Camera.PictureSourceType.CAMERA, 
-            allowEdit : true,
-            encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 300,
-            targetHeight: 300,
-            popoverOptions: CameraPopoverOptions,
+
+    	options = {
+            quality         : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            allowEdit       : true,
+            sourceType      : Camera.PictureSourceType.CAMERA,
+            encodingType    : Camera.EncodingType.JPEG,
+            targetWidth     : 300,
+            targetHeight    : 300,
+            popoverOptions  : CameraPopoverOptions,
+            saveToPhotoAlbum: false,
+            cameraDirection : Camera.Direction.FRONT
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            $state.go('picValidate');
+        }, function(err) {
+            // alert('error');
+        });
+    }
+
+    home.takeLibrary = _ => {
+
+        options = {
+            quality         : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            allowEdit       : true,
+            sourceType      : Camera.PictureSourceType.PHOTOLIBRARY,
+            encodingType    : Camera.EncodingType.JPEG,
+            targetWidth     : 300,
+            targetHeight    : 300,
+            popoverOptions  : CameraPopoverOptions,
             saveToPhotoAlbum: false
         };
- 
+
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            home.imgURI = "data:image/jpeg;base64," + imageData;
+            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            $state.go('picValidate');
         }, function(err) {
-            // An error occured. Show a message to the user
+            // alert('error');
         });
     }
 
   };
 
-  HomeCtrl.$inject = ['$cordovaCamera'];
+  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
 
 })();

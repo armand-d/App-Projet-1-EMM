@@ -19,11 +19,12 @@
             targetWidth     : 300,
             targetHeight    : 300,
             popoverOptions  : CameraPopoverOptions,
-            saveToPhotoAlbum: false
+            saveToPhotoAlbum: false,
+            cameraDirection : Camera.Direction.FRONT
         };
 
-        $cordovaCamera.getPicture(options).then(function(imageData) {
-            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+        $cordovaCamera.getPicture(options).then(function(base64) {
+            $rootScope.imgbase64 = "data:image/jpeg;base64," + base64;
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
@@ -44,8 +45,8 @@
             saveToPhotoAlbum: false
         };
 
-        $cordovaCamera.getPicture(options).then(function(imageData) {
-            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+        $cordovaCamera.getPicture(options).then(function(base64) {
+            $rootScope.imgURI = "data:image/jpeg;base64," + base64;
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
