@@ -12,7 +12,7 @@
 			<li class="item item-toggle" ng-repeat="item in type.data">
 			<img ng-src="{{ item.url }}">
 				<label class="toggle toggle-positive">
-					<input type="checkbox" ng-change="choseIcon.change(item.id)" ng-model="choseIcon.confirmed[item.id]">
+					<input type="checkbox" ng-change="choseIcon.change(item.id, item.url)" ng-model="choseIcon.confirmed[item.id]">
 					<div class="track">
 				 		<div class="handle"></div>
 					</div>

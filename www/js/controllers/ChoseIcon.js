@@ -33,12 +33,15 @@
       }
     };
     // fin data
+    $rootScope.icons = [];
 
-    choseIcon.change = item => {
+    choseIcon.change = (item, url) => {
       if(choseIcon.confirmed[item]) {
         console.log('add '+item);
+        $rootScope.icons.unshift(url);
       } else {
         console.log('remove '+item);
+        $rootScope.icons.shift(url);
       }
     }
 
@@ -48,6 +51,8 @@
 
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
+      // choseIcon.imgURI = $rootScope.imgURI;
+      $rootScope.img = 'img/test.png';
     }
 
   };
