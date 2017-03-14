@@ -15,7 +15,7 @@
                     var paramsAPI = {
                          api_key: API_KEY,
                          api_secret: API_SECRET,
-                         image_url: img
+                         image_url: img,
                     };
 
                     var req = $http({

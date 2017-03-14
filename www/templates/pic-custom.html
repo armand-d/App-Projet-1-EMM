@@ -4,19 +4,20 @@
           <i class="ion-chevron-left" ng-click="picCustom.back()"></i>
           <h1 class="title">funpic</h1>
      </ion-header-bar>
-     <ion-content class="padding pic-custom">
+     <ion-content class="has-header padding pic-custom">
           <div class="row row-center">
                <div class="col text-center padding">
-                    <img ng-src="{{imgbase64}}">
+                    <!-- <img ng-src="{{imgURI}}"> -->
+                    <canvas id="tempCanvas" width="300" height="300"></canvas>
                </div>
           </div>
-          <div style="width: 90%; margin-top: 30px;" id="debug"></div>
           <div class="row">
                <div class="col">
                     <h2 class="text-center">Cette photo vous plait ?</h2>
-                    <button class="button button-block button-positive">Partager</button>
-                    <button class="button button-block button-balanced" ng-click="picCustom.goHome()">Nouvelle Photo</button>
+                    <button class="button button-block button-balanced" ng-click="picCustom.shareImg()">Partager</button>
+                    <button class="button button-block button-assertive" ng-click="picCustom.goHome()">Nouvelle Photo</button>
                </div>
           </div>
+          <div style="width: 90%; margin-top: 30px;" id="debug"></div>
      </ion-content>
 </ion-view>
