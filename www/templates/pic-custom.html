@@ -7,9 +7,10 @@
      <ion-content class="padding pic-custom">
           <div class="row row-center">
                <div class="col text-center padding">
-                    <img ng-src="{{imgURI}}">
+                    <img ng-src="{{imgbase64}}">
                </div>
           </div>
+          <div style="width: 90%; margin-top: 30px;" id="debug"></div>
           <div class="row">
                <div class="col">
                     <h2 class="text-center">Cette photo vous plait ?</h2>
@@ -17,6 +18,5 @@
                     <button class="button button-block button-balanced" ng-click="picCustom.goHome()">Nouvelle Photo</button>
                </div>
           </div>
-          <div style="width: 90%; margin-top: 30px;" id="debug"></div>
      </ion-content>
 </ion-view>

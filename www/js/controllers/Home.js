@@ -12,7 +12,7 @@
 
     	options = {
             quality         : 75,
-            destinationType : Camera.DestinationType.DATA_URL,
+            destinationType : Camera.DestinationType.FILE_URI,
             allowEdit       : true,
             sourceType      : Camera.PictureSourceType.CAMERA,
             encodingType    : Camera.EncodingType.JPEG,
@@ -24,7 +24,7 @@
         };
 
         $cordovaCamera.getPicture(options).then(function(base64) {
-            $rootScope.imgbase64 = "data:image/jpeg;base64," + base64;
+            $rootScope.imgbase64 = base64;
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
