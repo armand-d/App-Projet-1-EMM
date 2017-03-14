@@ -52,7 +52,8 @@
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
       // choseIcon.imgURI = $rootScope.imgURI;
-      $rootScope.img = 'img/test.png';
+      // $rootScope.img = 'img/test.png';
+
     }
 
   };
