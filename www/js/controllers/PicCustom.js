@@ -7,7 +7,7 @@
 
        function PicCustomCtrl($state, $rootScope, detectService, $base64){
             const picCustom = this;
-          //   const imgUriTest = '/img/test.jpg';
+            const imgUriTest = '/img/test.jpg';
             picCustom.imgs = [];
 
             picCustom.initCanvas = _ => {
@@ -23,16 +23,13 @@
                picCustom.renderCanvas();
 
 
-               // picCustom.canvas.toBlob(function(blob){
-               //      picCustom.url = URL.createObjectURL(blob);
-               //      $rootScope.imgURI = picCustom.url;
-               //      console.log($rootScope.imgURI);
-               // });
-
                // Permet de transformer le canvas en image
-               $rootScope.imgURI = picCustom.canvas.toDataURL();
+               $rootScope.imgURI = picCustom.canvas.toDataURL("image/png");
+               console.log($rootScope.imgURI);
+          }
 
-            }
+
+
 
             picCustom.initImgCanvas = _ => {
                  picCustom.bgImg = new Image();
@@ -65,13 +62,13 @@
           //   }
 
           //   getDataUri(imgUriTest, function(dataBase64) {
-            //
+
               $rootScope.imgbase64 = 'https://www.coutdgalere.com/wp-content/uploads/2017/02/lemonn-way-logo.jpg';
 
-          detectService.detect($rootScope.imgbase64).then(function(response){
+             detectService.detect($rootScope.imgbase64).then(function(response){
 
-          });
-          //   });
+
+            });
 
             picCustom.back = _ => {
                $state.go('choseIcon');
