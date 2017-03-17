@@ -5,9 +5,10 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($state, $rootScope, detectService, $base64){
+       function PicCustomCtrl($state, $rootScope, detectService, $base64, $ionicActionSheet){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
+            picCustom.bgImage = [];
             picCustom.imgs = [];
 
             picCustom.initCanvas = _ => {
@@ -28,22 +29,22 @@
                console.log($rootScope.imgURI);
           }
 
-
-
-
             picCustom.initImgCanvas = _ => {
                  picCustom.bgImg = new Image();
                  picCustom.bgImg.src = $rootScope.imgURI;
-                 picCustom.imgs.push(picCustom.bgImg);
-
-                 picCustom.icon = new Image();
-                 picCustom.icon.src = $rootScope.icons;
-                 picCustom.imgs.push(picCustom.icon);
+                 picCustom.bgImage.push(picCustom.bgImg);
+                 angular.forEach($rootScope.icons, function(value, key){
+                    picCustom.icon = new Image();
+                    picCustom.icon.src = $rootScope.icons[key];
+                    picCustom.imgs.push(picCustom.icon);
+                 });
             }
 
             picCustom.renderCanvas = _ => {
-                 picCustom.context.drawImage(picCustom.imgs[0], 0, 0, 325, 325);
-                 picCustom.context.drawImage(picCustom.imgs[1], 110, 210, 100, 50);
+                 picCustom.context.drawImage(picCustom.bgImage[0], 0, 0, 300, 300);
+                 angular.forEach(picCustom.imgs, function(value, key){
+                      picCustom.context.drawImage(picCustom.imgs[key], 0, 0, 100, 50);
+                 });
             }
 
             picCustom.initCanvas();
@@ -63,12 +64,12 @@
 
           //   getDataUri(imgUriTest, function(dataBase64) {
 
-              $rootScope.imgbase64 = 'https://www.coutdgalere.com/wp-content/uploads/2017/02/lemonn-way-logo.jpg';
-
-             detectService.detect($rootScope.imgbase64).then(function(response){
-
-
-            });
+          //    $rootScope.imgbase64 = 'https://www.coutdgalere.com/wp-content/uploads/2017/02/lemonn-way-logo.jpg';
+            //
+          //    detectService.detect($rootScope.imgbase64).then(function(response){
+            //
+            //
+          //   });
 
             picCustom.back = _ => {
                $state.go('choseIcon');
@@ -79,12 +80,33 @@
             }
 
             picCustom.shareImg = _ => {
-               // Console.log - URI du canvas transformé en png
-            //    console.log($rootScope.imgURI);
+
+
             }
 
+            // ActionSheet
+            picCustom.show = _ => {
+                 var hideSheet = $ionicActionSheet.show({
+                      buttons: [
+                           { text: '<b>Enregistrer</b> la photo' },
+                           { text: '<b>Partager</b> la photo' },
+                      ],
+                      destructiveText: 'Supprimer',
+                      titleText: 'Enregistrer la photo',
+                      cancelText: 'Annuler',
+                      cancel: function() {
 
+                      },
+                      buttonClicked: function(index) {
+                           return true;
+                      },
+                      destructiveButtonClicked: function() {
+                         $state.go('home');
+                         return true;
+                      }
+                 });
+            }
        };
 
-       PicCustomCtrl.$inject = ['$state', '$rootScope', 'detectService', '$base64'];
+       PicCustomCtrl.$inject = ['$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet'];
 })();

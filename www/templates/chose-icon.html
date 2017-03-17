@@ -10,7 +10,7 @@
 		    	{{ type.title }}
 		  	</div>
 			<li class="item item-toggle" ng-repeat="item in type.data">
-			<img ng-src="{{ item.url }}">
+			<img ng-src="{{ item.url }}" id="{{ item.id }}">
 				<label class="toggle toggle-positive">
 					<input type="checkbox" ng-change="choseIcon.change(item.id, item.url)" ng-model="choseIcon.confirmed[item.id]">
 					<div class="track">

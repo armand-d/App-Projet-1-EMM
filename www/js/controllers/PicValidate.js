@@ -5,11 +5,10 @@
     .module('funpics')
     .controller('PicValidateCtrl', PicValidateCtrl);
 
-  function PicValidateCtrl ($state, $rootScope) {
+  function PicValidateCtrl ($state, $rootScope, detectService) {
     const picValidate = this;
     $rootScope.imgURI = 'img/test.png';
     picValidate.imgURI = $rootScope.imgURI;
-    console.log(picValidate.imgURI);
 
     picValidate.goChoseIcon = _ => {
          $state.go('choseIcon');
@@ -21,6 +20,6 @@
 
   };
 
-  PicValidateCtrl.$inject = ['$state', '$rootScope'];
+  PicValidateCtrl.$inject = ['$state', '$rootScope', 'detectService'];
 
 })();

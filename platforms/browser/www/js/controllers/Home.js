@@ -9,7 +9,6 @@
     const home = this;
 
     home.takePicture = _ => {
-
     	options = {
             quality         : 75,
             destinationType : Camera.DestinationType.DATA_URL,
@@ -19,12 +18,14 @@
             targetWidth     : 300,
             targetHeight    : 300,
             popoverOptions  : CameraPopoverOptions,
-            saveToPhotoAlbum: false,
+            saveToPhotoAlbum: $rootScope.save,
             cameraDirection : Camera.Direction.FRONT
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
+            // $rootScope.imgbase64 = "data:image/jpeg;base64," + base64;
             $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+
             $state.go('picValidate');
         }, function(err) {
             // alert('error');

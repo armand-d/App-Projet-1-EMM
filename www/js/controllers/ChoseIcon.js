@@ -43,6 +43,7 @@
         console.log('remove '+item);
         $rootScope.icons.shift(url);
       }
+      console.log($rootScope.icons);
     }
 
     choseIcon.back = _ => {
@@ -51,7 +52,7 @@
 
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
-      // choseIcon.imgURI = $rootScope.imgURI;
+      choseIcon.imgURI = $rootScope.imgURI;
       $rootScope.img = 'img/test.png';
 
     }
