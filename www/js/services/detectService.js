@@ -18,7 +18,6 @@
                          image_url: img,
                     };
 
-
                     var req = $http({
                          method: 'POST',
                          url: API_ENDPOINT,
