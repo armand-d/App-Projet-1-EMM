@@ -7,30 +7,42 @@
 
           function detectService($http){
 
-               this.detect = function(img){
+               this.detect = function(img_image_url){
                     const API_KEY = 'jdo9Yoh3stTB9uGkvxmxs9Vt59XEmflq';
                     const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
                     const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/detect';
 
-                    var paramsAPI = {
-                         api_key: API_KEY,
-                         api_secret: API_SECRET,
-                         image_url: img,
-                    };
+                    // var paramsAPI = {
+                    //      api_key: API_KEY,
+                    //      api_secret: API_SECRET,
+                    //      image_url: img,
+                    // };
 
-                    var req = $http({
-                         method: 'POST',
-                         url: API_ENDPOINT,
-                         params: paramsAPI,
-                    }).then(
-                         function successCallback(response) {
-                              document.getElementById("debug").innerHTML = 'sucess '+JSON.stringify(response);
-                         }, function errorCallback(response) {
-                              document.getElementById("debug").innerHTML = 'error '+JSON.stringify(response);
-                         }
-                    );
+                    url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
+                    
+                    ft = new FileTransfer
+                    
+                    ft.upload(image_url,encodeURI(url),function(r){
+                      console.log(r);
+                      $('#debug').html(r);
+                    },function(e){
+                      console.log(e);
+                      $('#debug').html(r);
+                    },options)
 
-                    return req;
+                    // var req = $http({
+                    //      method: 'POST',
+                    //      url: API_ENDPOINT,
+                    //      params: paramsAPI,
+                    // }).then(
+                    //      function successCallback(response) {
+                    //           document.getElementById("debug").innerHTML = 'sucess '+JSON.stringify(response);
+                    //      }, function errorCallback(response) {
+                    //           document.getElementById("debug").innerHTML = 'error '+JSON.stringify(response);
+                    //      }
+                    // );
+
+                    // return req;
                }
           }
 
