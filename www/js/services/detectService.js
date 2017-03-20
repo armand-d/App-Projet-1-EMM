@@ -5,12 +5,12 @@
           .module('funpics')
           .service('detectService', detectService);
 
-          function detectService($http){
+          function detectService($http, $cordovaFileTransfer){
 
-               this.detect = function(img_image_url){
+               this.detect = function(image_url){
                     const API_KEY = 'jdo9Yoh3stTB9uGkvxmxs9Vt59XEmflq';
                     const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
-                    const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/detect';
+                    const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/';
 
                     // var paramsAPI = {
                     //      api_key: API_KEY,
@@ -20,14 +20,21 @@
 
                     url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
                     
-                    ft = new FileTransfer
+                    ft = new FileTransfer();
                     
+                     var options = {
+                         fileKey: "image_file",
+                         fileName: 'filename',
+                         chunkedMode: false,
+                         mimeType: "image/jpg",
+                     };
+
                     ft.upload(image_url,encodeURI(url),function(r){
                       console.log(r);
-                      $('#debug').html(r);
+                      $('body').html(r);
                     },function(e){
                       console.log(e);
-                      $('#debug').html(r);
+                      $('body').html(r);
                     },options)
 
                     // var req = $http({
@@ -47,6 +54,6 @@
                }
           }
 
-          detectService.$inject = ['$http'];
+          detectService.$inject = ['$http', '$cordovaFileTransfer'];
 
 })();
