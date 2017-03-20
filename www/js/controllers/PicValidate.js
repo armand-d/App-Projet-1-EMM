@@ -20,12 +20,16 @@
     picValidate.goChoseIcon = _ => {
       detectService.detect($localStorage.imgURI)
       .then(function(success){
-
+        // document.getElementById("debug").innerHTML = 'success'+JSON.stringify(success);
+        // alert('success validate');
+        // $state.go('choseIcon');
       },function(error){
+        document.getElementById("debug").innerHTML = 'success'+JSON.stringify(error);
+        // alert('error validate');
 
       });
 
-      $state.go('choseIcon');
+
     }
 
     picValidate.backHome = _ => {
