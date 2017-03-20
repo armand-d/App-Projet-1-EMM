@@ -5,7 +5,7 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($state, $rootScope, detectService, $base64, $ionicActionSheet){
+       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, detectService, $base64, $ionicActionSheet, $localStorage){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
             picCustom.bgImage = [];
@@ -23,19 +23,21 @@
 
                picCustom.renderCanvas();
 
-
                // Permet de transformer le canvas en image
-               $rootScope.imgURI = picCustom.canvas.toDataURL("image/png");
-               console.log($rootScope.imgURI);
+               $localStorage.imgURI = picCustom.canvas.toDataURL("image/jpg");
+               picCustom.url = $localStorage.imgURI;
+               // console.log(picCustom.url);
+
           }
 
             picCustom.initImgCanvas = _ => {
                  picCustom.bgImg = new Image();
-                 picCustom.bgImg.src = $rootScope.imgURI;
+                 picCustom.bgImg.src = $localStorage.imgURI;
                  picCustom.bgImage.push(picCustom.bgImg);
-                 angular.forEach($rootScope.icons, function(value, key){
+
+                 angular.forEach($localStorage.icons, function(value, key){
                     picCustom.icon = new Image();
-                    picCustom.icon.src = $rootScope.icons[key];
+                    picCustom.icon.src = $localStorage.icons[key];
                     picCustom.imgs.push(picCustom.icon);
                  });
             }
@@ -65,17 +67,13 @@
           //   getDataUri(imgUriTest, function(dataBase64) {
 
           //    $rootScope.imgbase64 = 'https://www.coutdgalere.com/wp-content/uploads/2017/02/lemonn-way-logo.jpg';
-            //
-          //    detectService.detect($rootScope.imgbase64).then(function(response){
-            //
-            //
-          //   });
 
             picCustom.back = _ => {
                $state.go('choseIcon');
             }
 
             picCustom.goHome = _ => {
+                 $localStorage.$reset();
                  $state.go('home');
             }
 
@@ -98,15 +96,17 @@
 
                       },
                       buttonClicked: function(index) {
-                           return true;
+                         //   Canvas2Image.saveAsJPEG(picCustom.canvas, picCustom.canvas.width, picCustom.canvas.height);
+                         //   return true;
                       },
                       destructiveButtonClicked: function() {
                          $state.go('home');
+                         $localStorage.$reset();
                          return true;
                       }
                  });
             }
        };
 
-       PicCustomCtrl.$inject = ['$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet'];
+       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet', '$localStorage'];
 })();

@@ -18,11 +18,13 @@
                          image_url: img,
                     };
 
+
                     var req = $http({
                          method: 'POST',
                          url: API_ENDPOINT,
                          params: paramsAPI,
-                    }).then(
+                    })
+                    .then(
                          function successCallback(response) {
                               document.getElementById("debug").innerHTML = 'sucess '+JSON.stringify(response);
                          }, function errorCallback(response) {
