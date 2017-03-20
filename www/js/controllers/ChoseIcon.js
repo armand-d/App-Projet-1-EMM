@@ -5,7 +5,7 @@
     .module('funpics')
     .controller('ChoseIconCtrl', ChoseIconCtrl);
 
-  function ChoseIconCtrl ($state, $rootScope) {
+  function ChoseIconCtrl ($state, $rootScope, $localStorage, $cordovaFileTransfer) {
     const choseIcon = this;
 
     // Data à mettre dans un autre fichier / firebase
@@ -14,14 +14,14 @@
         title : 'Moustaches',
         data : {
           mustache_1: {id: 1, url:'img/icons/mustache_1.svg'},
-          mustache_2: {id: 2,url:'img/icons/mustache_2.svg'},
+          mustache_2: {id: 2, url:'img/icons/mustache_2.svg'},
         }
       },
       hats : {
         title : 'Chapeaux',
         data : {
           hat_1: {id: 3, url:'img/icons/chapeau_1.svg'},
-          hat_2: {id: 4,url:'img/icons/chapeau_2.svg'},
+          hat_2: {id: 4, url:'img/icons/chapeau_2.svg'},
         }
       },
       glasses : {
@@ -33,17 +33,16 @@
       }
     };
     // fin data
-    $rootScope.icons = [];
 
     choseIcon.change = (item, url) => {
       if(choseIcon.confirmed[item]) {
-        console.log('add '+item);
-        $rootScope.icons.unshift(url);
+        // console.log('add '+item);
+        $localStorage.icons.unshift(url);
       } else {
-        console.log('remove '+item);
-        $rootScope.icons.shift(url);
+        // console.log('remove '+item);
+        $localStorage.icons.shift(url);
       }
-      console.log($rootScope.icons);
+      console.log($localStorage.icons);
     }
 
     choseIcon.back = _ => {
@@ -52,13 +51,13 @@
 
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
-      choseIcon.imgURI = $rootScope.imgURI;
-      $rootScope.img = 'img/test.png';
+    //   choseIcon.imgURI = $rootScope.imgURI;
+    //   $rootScope.img = 'img/test.png';
 
     }
 
   };
 
-  ChoseIconCtrl.$inject = ['$state', '$rootScope'];
+  ChoseIconCtrl.$inject = ['$state', '$rootScope', '$localStorage', '$cordovaFileTransfer'];
 
 })();

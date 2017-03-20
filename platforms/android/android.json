@@ -338,16 +338,26 @@
             "runs": true
         },
         {
+<<<<<<< HEAD
             "id": "cordova-plugin-file-transfer.FileTransferError",
             "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+=======
+            "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+            "id": "cordova-plugin-file-transfer.FileTransferError",
+>>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
             "pluginId": "cordova-plugin-file-transfer",
             "clobbers": [
                 "window.FileTransferError"
             ]
         },
         {
+<<<<<<< HEAD
             "id": "cordova-plugin-file-transfer.FileTransfer",
             "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+=======
+            "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+            "id": "cordova-plugin-file-transfer.FileTransfer",
+>>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
             "pluginId": "cordova-plugin-file-transfer",
             "clobbers": [
                 "window.FileTransfer"

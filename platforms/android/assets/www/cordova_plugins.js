@@ -239,16 +239,26 @@ module.exports = [
         "runs": true
     },
     {
+<<<<<<< HEAD
         "id": "cordova-plugin-file-transfer.FileTransferError",
         "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+=======
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+        "id": "cordova-plugin-file-transfer.FileTransferError",
+>>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
         "pluginId": "cordova-plugin-file-transfer",
         "clobbers": [
             "window.FileTransferError"
         ]
     },
     {
+<<<<<<< HEAD
         "id": "cordova-plugin-file-transfer.FileTransfer",
         "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+=======
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+        "id": "cordova-plugin-file-transfer.FileTransfer",
+>>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
         "pluginId": "cordova-plugin-file-transfer",
         "clobbers": [
             "window.FileTransfer"
@@ -268,6 +278,10 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-file": "4.3.2",
     "cordova-plugin-file-transfer": "1.6.2"
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
 // BOTTOM OF METADATA
 });
