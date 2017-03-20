@@ -18,10 +18,9 @@
 
 
     picValidate.goChoseIcon = _ => {
-      // $('body').html($localStorage.imgURI);
-      
       detectService.detect($localStorage.imgURI)
       .then(function(success){
+
       },function(error){
 
       });
