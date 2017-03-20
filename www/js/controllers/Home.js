@@ -25,9 +25,7 @@
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            // $rootScope.imgbase64 = "data:image/jpeg;base64," + base64;
             home.storage.imgURI = "data:image/jpeg;base64," + imageData;
-
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
