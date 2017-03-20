@@ -12,11 +12,10 @@
 
                this.detect = function(image_url){
 
-                    url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
-                    
-                    ft = new FileTransfer
-                    
-                    options = {
+                    var url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
+                    var ft = new FileTransfer();
+
+                    var  options = {
                          fileKey: "image_file",
                          fileName: 'filename',
                          chunkedMode: false,
@@ -24,14 +23,15 @@
                     };
 
                     ft.upload(image_url,encodeURI(url),function(r){
-                    document.getElementById("debug").innerHTML = 'success'+JSON.stringify(r);
-                      defer.resolve(r);
+                    //     document.getElementById("debug").innerHTML = 'success'+r.response;
+                        alert(r.response);
+                        defer.resolve(r);
                     },function(e){
-                     defer.resolve(e);
+                        defer.resolve(e);
                     },options);
 
                     return defer.promise;
-               }
+                }
           }
 
           detectService.$inject = ['$q', '$http', '$cordovaFileTransfer'];

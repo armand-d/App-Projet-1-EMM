@@ -24,7 +24,7 @@
         // alert('success validate');
         // $state.go('choseIcon');
       },function(error){
-        document.getElementById("debug").innerHTML = 'success'+JSON.stringify(error);
+        // document.getElementById("debug").innerHTML = 'success'+JSON.stringify(error);
         // alert('error validate');
 
       });
