@@ -8,7 +8,7 @@
   function HomeCtrl ($cordovaCamera, $state, $rootScope, $localStorage) {
     const home = this;
     $localStorage.$reset();
-    home.storage = $localStorage.$default({ imgURI : '' , icons: [], faceToken : '' });
+    home.storage = $localStorage.$default({ imgURI : '' , icons: [], faceToken : '', faceData : '' });
 
     home.takePicture = _ => {
     	options = {
