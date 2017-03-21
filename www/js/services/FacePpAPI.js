@@ -45,7 +45,8 @@
                     api_secret: API_SECRET,
                     api_key : API_KEY,
                     face_tokens: token,
-                    return_landmark : 1
+                    return_landmark : 1,
+                    return_attributes : 'gender,age,smiling,headpose,facequality,blur,eyestatus,ethnicity'
                 };
 
                 $http({

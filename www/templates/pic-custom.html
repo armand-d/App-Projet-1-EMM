@@ -4,10 +4,9 @@
           <i class="ion-chevron-left" ng-click="picCustom.back()"></i>
           <h1 class="title">funpic</h1>
      </ion-header-bar>
-     <ion-content class="has-header padding pic-custom">
+     <ion-pane class="has-header padding pic-custom">
           <div class="row row-center">
                <div class="col text-center padding">
-                    <!-- <img ng-src="{{imgURI}}"> -->
                     <canvas id="tempCanvas" width="300" height="300"></canvas>
                </div>
           </div>
@@ -18,6 +17,5 @@
                     <button class="button button-block button-assertive" ng-click="picCustom.goHome()">Nouvelle Photo</button>
                </div>
           </div>
-          <!-- <div style="width: 90%; margin-top: 30px;" id="debug"></div> -->
-     </ion-content>
+     </ion-pane>
 </ion-view>

@@ -24,7 +24,8 @@
         $localStorage.faceToken = face_token;
         FacePpAPI.analyze($localStorage.faceToken)
         .then(function(response) {
-          $localStorage.faceData = response.data.faces[0].landmark;
+          $localStorage.faceLandmark = response.data.faces[0].landmark;
+          $localStorage.faceAttributes = response.data.faces[0].attributes;
         });
         $ionicLoading.hide();
         $state.go('choseIcon');
