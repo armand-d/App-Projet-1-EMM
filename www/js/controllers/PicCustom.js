@@ -5,7 +5,7 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, detectService, $base64, $ionicActionSheet, $localStorage){
+       function PicCustomCtrl($state, $rootScope, detectService, $base64, $ionicActionSheet){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
             picCustom.bgImage = [];
@@ -23,21 +23,19 @@
 
                picCustom.renderCanvas();
 
-               // Permet de transformer le canvas en image
-               $localStorage.imgURI = picCustom.canvas.toDataURL("image/jpg");
-               picCustom.url = $localStorage.imgURI;
-               // console.log(picCustom.url);
 
+               // Permet de transformer le canvas en image
+               $rootScope.imgURI = picCustom.canvas.toDataURL("image/png");
+               console.log($rootScope.imgURI);
           }
 
             picCustom.initImgCanvas = _ => {
                  picCustom.bgImg = new Image();
-                 picCustom.bgImg.src = $localStorage.imgURI;
+                 picCustom.bgImg.src = $rootScope.imgURI;
                  picCustom.bgImage.push(picCustom.bgImg);
-
-                 angular.forEach($localStorage.icons, function(value, key){
+                 angular.forEach($rootScope.icons, function(value, key){
                     picCustom.icon = new Image();
-                    picCustom.icon.src = $localStorage.icons[key];
+                    picCustom.icon.src = $rootScope.icons[key];
                     picCustom.imgs.push(picCustom.icon);
                  });
             }
@@ -56,7 +54,6 @@
             }
 
             picCustom.goHome = _ => {
-                 $localStorage.$reset();
                  $state.go('home');
             }
 
@@ -79,17 +76,15 @@
 
                       },
                       buttonClicked: function(index) {
-                         //   Canvas2Image.saveAsJPEG(picCustom.canvas, picCustom.canvas.width, picCustom.canvas.height);
-                         //   return true;
+                           return true;
                       },
                       destructiveButtonClicked: function() {
                          $state.go('home');
-                         $localStorage.$reset();
                          return true;
                       }
                  });
             }
        };
 
-       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet', '$localStorage'];
+       PicCustomCtrl.$inject = ['$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet'];
 })();

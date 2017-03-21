@@ -41,31 +41,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "pluginId": "cordova-plugin-splashscreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
-    },
-    {
-        "id": "cordova-plugin-statusbar.statusbar",
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "pluginId": "cordova-plugin-statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
-        "id": "ionic-plugin-keyboard.keyboard",
-        "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
-        "pluginId": "ionic-plugin-keyboard",
-        "clobbers": [
-            "cordova.plugins.Keyboard"
-        ],
-        "runs": true
-    },
-    {
         "id": "cordova-plugin-file.DirectoryEntry",
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "pluginId": "cordova-plugin-file",
@@ -239,30 +214,45 @@ module.exports = [
         "runs": true
     },
     {
-<<<<<<< HEAD
         "id": "cordova-plugin-file-transfer.FileTransferError",
         "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
-=======
-        "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
-        "id": "cordova-plugin-file-transfer.FileTransferError",
->>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
         "pluginId": "cordova-plugin-file-transfer",
         "clobbers": [
             "window.FileTransferError"
         ]
     },
     {
-<<<<<<< HEAD
         "id": "cordova-plugin-file-transfer.FileTransfer",
         "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
-=======
-        "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
-        "id": "cordova-plugin-file-transfer.FileTransfer",
->>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
         "pluginId": "cordova-plugin-file-transfer",
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "pluginId": "cordova-plugin-splashscreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
+    },
+    {
+        "id": "cordova-plugin-statusbar.statusbar",
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "pluginId": "cordova-plugin-statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
+        "id": "ionic-plugin-keyboard.keyboard",
+        "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
+        "pluginId": "ionic-plugin-keyboard",
+        "clobbers": [
+            "cordova.plugins.Keyboard"
+        ],
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -272,16 +262,12 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.3.1",
     "cordova-plugin-console": "1.0.5",
     "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-file": "4.3.2",
+    "cordova-plugin-file-transfer": "1.6.2",
     "cordova-plugin-splashscreen": "4.0.1",
     "cordova-plugin-statusbar": "2.2.1",
     "cordova-plugin-whitelist": "1.3.1",
-    "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-file": "4.3.2",
-    "cordova-plugin-file-transfer": "1.6.2"
-<<<<<<< HEAD
+    "ionic-plugin-keyboard": "2.2.1"
 };
-=======
-}
->>>>>>> a196015e576fb0502ac4da9c44a1085cb9bb343d
 // BOTTOM OF METADATA
 });

@@ -5,31 +5,13 @@
     .module('funpics')
     .controller('PicValidateCtrl', PicValidateCtrl);
 
-  function PicValidateCtrl ($state, $rootScope, detectService, $localStorage, $cordovaFileTransfer) {
+  function PicValidateCtrl ($state, $rootScope, detectService) {
     const picValidate = this;
-
-    // picValidate.storage = $localStorage.$default({ imgURI : '' });
-
-    picValidate.init = _ => {
-      // picValidate.storage.imgURI = 'img/test.png';
-      picValidate.imgURI = $localStorage.imgURI;
-      return picValidate.imgURI;
-    }
-
+    $rootScope.imgURI = 'img/test.png';
+    picValidate.imgURI = $rootScope.imgURI;
 
     picValidate.goChoseIcon = _ => {
-      detectService.detect($localStorage.imgURI)
-      .then(function(success){
-        // document.getElementById("debug").innerHTML = 'success'+JSON.stringify(success);
-        // alert('success validate');
-        // $state.go('choseIcon');
-      },function(error){
-        // document.getElementById("debug").innerHTML = 'success'+JSON.stringify(error);
-        // alert('error validate');
-
-      });
-
-
+         $state.go('choseIcon');
     }
 
     picValidate.backHome = _ => {
@@ -38,6 +20,6 @@
 
   };
 
-  PicValidateCtrl.$inject = ['$state', '$rootScope', 'detectService', '$localStorage', '$cordovaFileTransfer'];
+  PicValidateCtrl.$inject = ['$state', '$rootScope', 'detectService'];
 
 })();

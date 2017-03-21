@@ -1,7 +1,7 @@
 (function(){
      'use strict';
 
-  var app = angular.module('funpics', ['ionic', 'ui.router', 'ngCordova', 'ngCookies', 'base64', 'ngStorage'])
+  var app = angular.module('funpics', ['ionic', 'ui.router', 'ngCordova', 'ngCookies', 'base64'])
 
   .run(function($ionicPlatform, $http, $cookies) {
     $ionicPlatform.ready(function() {
@@ -15,7 +15,7 @@
     });
   })
   .config(function($stateProvider, $urlRouterProvider, $httpProvider){
-
+    
     $stateProvider
          .state({
               name          : 'home',
@@ -43,7 +43,7 @@
              url            : '/pic-custom',
              templateUrl    : 'templates/pic-custom.html',
              controller     : 'PicCustomCtrl',
-             controllerAs   : 'picCustom'
+             controllerAs   : 'picCustom' 
          });
 
     $urlRouterProvider.otherwise('home');

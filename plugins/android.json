@@ -16,6 +16,9 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.myapp113591"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
@@ -27,16 +30,13 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.myapp113591"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.ionicframework.myapp113591"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.myapp113591"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         }
     }
