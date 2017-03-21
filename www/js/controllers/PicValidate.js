@@ -5,7 +5,7 @@
     .module('funpics')
     .controller('PicValidateCtrl', PicValidateCtrl);
 
-  function PicValidateCtrl ($state, $rootScope, FacePpAPI, $localStorage, $cordovaFileTransfer) {
+  function PicValidateCtrl ($state, $rootScope, FacePpAPI, $localStorage, $cordovaFileTransfer, $ionicLoading) {
     const picValidate = this;
 
     picValidate.init = _ => {
@@ -14,10 +14,18 @@
     }
 
     picValidate.goChoseIcon = _ => {
+      $ionicLoading.show({
+        template: 'Chargement ...'
+      });
       FacePpAPI.detect($localStorage.imgURI)
       .then(function(response) {
         var face_token = JSON.parse(JSON.stringify(JSON.parse(response).faces[0])).face_token;
         $localStorage.faceToken = face_token;
+        FacePpAPI.analyze($localStorage.faceToken)
+        .then(function(response) {
+          $localStorage.faceData = response.data.faces[0].landmark;
+        });
+        $ionicLoading.hide();
         $state.go('choseIcon');
       });
     }
@@ -28,6 +36,6 @@
 
   };
 
-  PicValidateCtrl.$inject = ['$state', '$rootScope', 'FacePpAPI', '$localStorage', '$cordovaFileTransfer'];
+  PicValidateCtrl.$inject = ['$state', '$rootScope', 'FacePpAPI', '$localStorage', '$cordovaFileTransfer', '$ionicLoading'];
 
 })();

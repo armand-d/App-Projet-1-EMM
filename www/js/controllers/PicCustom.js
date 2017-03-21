@@ -8,13 +8,17 @@
        function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $base64, $ionicActionSheet, $localStorage){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
+            picCustom.dataFace = "";
             picCustom.bgImage = [];
             picCustom.imgs = [];
-
-            FacePpAPI.analyze($localStorage.faceToken)
-            .then(function(response) {
-              console.log(response);
-            });
+            
+            // à nettoyer object (ex : var glassesPos = {...})
+            console.log($localStorage.faceData);
+            var noseContourLowerMiddle = $localStorage.faceData.nose_contour_lower_middle;
+            var leftEye_leftCorner = $localStorage.faceData.left_eye_left_corner;
+            var rightEye_rightCorner = $localStorage.faceData.right_eye_right_corner;
+            var leftEyebrow_upperMiddle = $localStorage.faceData.left_eyebrow_upper_middle;
+            //
 
             picCustom.initCanvas = _ => {
 
@@ -50,7 +54,9 @@
             picCustom.renderCanvas = _ => {
                  picCustom.context.drawImage(picCustom.bgImage[0], 0, 0, 300, 300);
                  angular.forEach(picCustom.imgs, function(value, key){
-                      picCustom.context.drawImage(picCustom.imgs[key], 0, 0, 100, 50);
+                      // dessin des icons + position (et calcul de ratio à faire + rotation)
+                      picCustom.context.drawImage(picCustom.imgs[key], leftEye_leftCorner.x - 20, leftEyebrow_upperMiddle.y - 3, (rightEye_rightCorner.x - (leftEye_leftCorner.x - 40)), 50);
+                      //
                  });
             }
 

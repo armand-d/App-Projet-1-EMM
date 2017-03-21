@@ -25,16 +25,19 @@
                      mimeType: "image/jpeg",
                 };
 
-                ft.upload(image_url,encodeURI(url),function(r){
+                ft.upload(image_url,encodeURI(url),
+                  function successCallback(r){
                     defer.resolve(r.response);
-                },function(e){
-                    defer.resolve(e.response);
-                },options);
+                  },function errorCallback(e){
+                      defer.reject(e.response);
+                  },options);
 
                 return defer.promise;
             }
 
             this.analyze = function(token){
+
+                var defer = $q.defer();
 
                 var url = API_ENDPOINT+'face/analyze';
 
@@ -45,19 +48,19 @@
                     return_landmark : 1
                 };
 
-                var req = $http({
+                $http({
                     method: 'POST',
                     url: url,
                     params: paramsAPI,
                 }).then(
-                    function successCallback(response) {
-                        console.log(JSON.stringify(response));
-                    }, function errorCallback(response) {
-                        console.log(JSON.stringify(response));
+                    function successCallback(r) {
+                        defer.resolve(r);
+                    }, function errorCallback(e) {
+                        defer.reject(e);
                     }
                 );
 
-                return req;
+                return defer.promise;
             }
           }
 
