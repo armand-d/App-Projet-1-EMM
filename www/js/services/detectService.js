@@ -5,47 +5,35 @@
           .module('funpics')
           .service('detectService', detectService);
 
-          function detectService($http){
+          function detectService($q, $http, $cordovaFileTransfer){
+               const API_KEY = 'jdo9Yoh3stTB9uGkvxmxs9Vt59XEmflq';
+               const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
+               const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/';
 
-               this.detect = function(img_image_url){
-                    const API_KEY = 'jdo9Yoh3stTB9uGkvxmxs9Vt59XEmflq';
-                    const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
-                    const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/detect';
+               this.detect = function(image_url){
 
-                    // var paramsAPI = {
-                    //      api_key: API_KEY,
-                    //      api_secret: API_SECRET,
-                    //      image_url: img,
-                    // };
+                    var defer = $q.defer();
 
-                    url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
-                    
-                    ft = new FileTransfer
-                    
+                    var url = API_ENDPOINT+'detect?api_secret='+API_SECRET+'&api_key='+API_KEY;
+                    var ft = new FileTransfer();
+
+                    var  options = {
+                         fileKey: "image_file",
+                         fileName: 'filename',
+                         chunkedMode: false,
+                         mimeType: "image/jpeg",
+                    };
+
                     ft.upload(image_url,encodeURI(url),function(r){
-                      console.log(r);
-                      $('#debug').html(r);
+                        defer.resolve(r.response);
                     },function(e){
-                      console.log(e);
-                      $('#debug').html(r);
-                    },options)
+                        defer.resolve(e.response);
+                    },options);
 
-                    // var req = $http({
-                    //      method: 'POST',
-                    //      url: API_ENDPOINT,
-                    //      params: paramsAPI,
-                    // }).then(
-                    //      function successCallback(response) {
-                    //           document.getElementById("debug").innerHTML = 'sucess '+JSON.stringify(response);
-                    //      }, function errorCallback(response) {
-                    //           document.getElementById("debug").innerHTML = 'error '+JSON.stringify(response);
-                    //      }
-                    // );
-
-                    // return req;
-               }
+                    return defer.promise;
+                }
           }
 
-          detectService.$inject = ['$http'];
+          detectService.$inject = ['$q', '$http', '$cordovaFileTransfer'];
 
 })();
