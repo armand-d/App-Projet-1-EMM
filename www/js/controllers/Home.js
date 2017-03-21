@@ -5,8 +5,10 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera, $state, $rootScope) {
+  function HomeCtrl ($cordovaCamera, $state, $rootScope, $localStorage) {
     const home = this;
+    $localStorage.$reset();
+    home.storage = $localStorage.$default({ imgURI : '' , icons: [] });
 
     home.takePicture = _ => {
     	options = {
@@ -18,12 +20,12 @@
             targetWidth     : 300,
             targetHeight    : 300,
             popoverOptions  : CameraPopoverOptions,
-            saveToPhotoAlbum: $rootScope.save,
+            saveToPhotoAlbum: false,
             cameraDirection : Camera.Direction.FRONT
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            home.storage.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
@@ -45,7 +47,7 @@
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            $rootScope.imgURI = "data:image/jpeg;base64," + imageData;
+            home.storage.imgURI = "data:image/jpeg;base64," + imageData;
             $state.go('picValidate');
         }, function(err) {
             // alert('error');
@@ -54,6 +56,6 @@
 
   };
 
-  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
+  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', '$localStorage'];
 
 })();
