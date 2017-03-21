@@ -5,11 +5,16 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, detectService, $base64, $ionicActionSheet, $localStorage){
+       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $base64, $ionicActionSheet, $localStorage){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
             picCustom.bgImage = [];
             picCustom.imgs = [];
+
+            FacePpAPI.analyze($localStorage.faceToken)
+            .then(function(response) {
+              console.log(response);
+            });
 
             picCustom.initCanvas = _ => {
 
@@ -91,5 +96,5 @@
             }
        };
 
-       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'detectService', '$base64', '$ionicActionSheet', '$localStorage'];
+       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$base64', '$ionicActionSheet', '$localStorage'];
 })();

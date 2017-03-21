@@ -5,23 +5,20 @@
     .module('funpics')
     .controller('PicValidateCtrl', PicValidateCtrl);
 
-  function PicValidateCtrl ($state, $rootScope, detectService, $localStorage, $cordovaFileTransfer) {
+  function PicValidateCtrl ($state, $rootScope, FacePpAPI, $localStorage, $cordovaFileTransfer) {
     const picValidate = this;
 
-    // picValidate.storage = $localStorage.$default({ imgURI : '' });
-
     picValidate.init = _ => {
-      // picValidate.storage.imgURI = 'img/test.png';
       picValidate.imgURI = $localStorage.imgURI;
       return picValidate.imgURI;
     }
 
     picValidate.goChoseIcon = _ => {
-      detectService.detect($localStorage.imgURI)
+      FacePpAPI.detect($localStorage.imgURI)
       .then(function(response) {
-        console.log(response);
         var face_token = JSON.parse(JSON.stringify(JSON.parse(response).faces[0])).face_token;
-        console.log(face_token);
+        $localStorage.faceToken = face_token;
+        $state.go('choseIcon');
       });
     }
 
@@ -31,6 +28,6 @@
 
   };
 
-  PicValidateCtrl.$inject = ['$state', '$rootScope', 'detectService', '$localStorage', '$cordovaFileTransfer'];
+  PicValidateCtrl.$inject = ['$state', '$rootScope', 'FacePpAPI', '$localStorage', '$cordovaFileTransfer'];
 
 })();
