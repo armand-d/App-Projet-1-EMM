@@ -5,22 +5,23 @@
   		<h1 class="title">funpic</h1>
 	</ion-header-bar>
     <ion-content class="padding chose-icon">
-		<div class="list">
+		<div class="list" >
             <div class="item item-divider">Moustaches</div>
-            <ion-radio ng-repeat="item in choseIcon.mustaches" ng-model="item.checked" ng-value="true" name="mustaches" ng-change="choseIcon.iconsSelected(item)">
+            <ion-checkbox ng-if="item.type == 'mustaches'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-radio>
+            </ion-checkbox>
             <div class="item item-divider">Chapeaux</div>
-            <ion-radio ng-repeat="item in choseIcon.hats" ng-model="item.checked" ng-value="true" name="hats" ng-change="choseIcon.iconsSelected(item)">
-                <img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-radio>
+            <ion-checkbox ng-if="item.type == 'hats'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked" ng-change="choseIcon.disable(item)">
+            	<img ng-src="{{ item.url }}" id="{{ item.id }}">
+            </ion-checkbox>
             <div class="item item-divider">Lunettes</div>
-            <ion-radio ng-repeat="item in choseIcon.glasses" ng-model="item.checked" ng-value="true" name="glasses" ng-change="choseIcon.iconsSelected(item)">
-                <img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-radio>
+            <ion-checkbox ng-if="item.type == 'glasses'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked">
+            	<img ng-src="{{ item.url }}" id="{{ item.id }}">
+            </ion-checkbox>
         </div>
 		<div>
 			<button class="button button-block button-balanced button-go" ng-click="choseIcon.goPicCustom()">GO</button>
 		</div>
+        <pre ng-bind="choseIcon.data | json"></pre>
 	</ion-content>
 </ion-view>

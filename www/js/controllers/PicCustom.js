@@ -28,7 +28,7 @@
             var widtheyeX = right_eye_center.x - left_eye_center.x;
             var eyeCenterX = left_eye_center.x + (widtheyeX/2);
 
-            if (right_eye_center.y > left_eye_center.y){  
+            if (right_eye_center.y > left_eye_center.y){
               var val_1 = right_eye_center.y;
               var val_2 = left_eye_center.y;
             } else {
