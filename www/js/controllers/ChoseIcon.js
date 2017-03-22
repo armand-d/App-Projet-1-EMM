@@ -7,42 +7,66 @@
 
   function ChoseIconCtrl ($state, $rootScope, $localStorage, $cordovaFileTransfer) {
     const choseIcon = this;
+    // Rempli le tableau avec les icons dans le localstorage
+    choseIcon.storage = $localStorage.$default({ icons: [] });
 
-    // Data à mettre dans un autre fichier / firebase
-    choseIcon.data = {
-      mustaches : {
-        title : 'Moustaches',
-        data : {
-          mustache_1: {id: 1, type: 'moustaches', url:'img/icons/mustache_1.svg'},
-          mustache_2: {id: 2, type: 'moustaches', url:'img/icons/mustache_2.svg'},
-        }
+    choseIcon.mustaches = [
+      {
+        id: 1,
+        type: 'mustaches',
+        url:'img/icons/mustache_1.svg',
+        checked: false
       },
-      hats : {
-        title : 'Chapeaux',
-        data : {
-          hat_1: {id: 3, type: 'chapeaux', url:'img/icons/chapeau_1.svg'},
-          hat_2: {id: 4, type: 'chapeaux', url:'img/icons/chapeau_2.svg'},
-        }
-      },
-      glasses : {
-        title : 'Lunettes',
-        data : {
-          glasses_1: {id: 5, type: 'lunettes', url:'img/icons/lunette_1.svg'},
-          glasses_2: {id: 6, type: 'lunettes', url:'img/icons/lunette_2.svg'},
-        }
+      {
+        id: 2,
+        type: 'moustaches',
+        url:'img/icons/mustache_2.svg',
+        checked: false
       }
-    };
-    // fin data
+    ];
+    choseIcon.hats = [
+      {
+        id: 3,
+        type: 'hats',
+        url:'img/icons/chapeau_1.svg',
+        checked: false
+      },
+      {
+        id: 4,
+        type: 'hats',
+        url:'img/icons/chapeau_2.svg',
+        checked: false
+      }
+    ];
+    choseIcon.glasses = [
+      {
+        id: 5,
+        type: 'glasses',
+        url:'img/icons/lunette_1.svg',
+        checked: false
+      },
+      {
+        id: 6,
+        type: 'glasses',
+        url:'img/icons/lunette_2.svg',
+        checked: false
+      }
+    ];
 
-    choseIcon.change = (item, url, type) => {
-      if(choseIcon.confirmed[item]) {
-        // console.log('add '+item);
-        $localStorage.icons.unshift(url);
-      } else {
-        // console.log('remove '+item);
-        $localStorage.icons.shift(url);
-      }
+    choseIcon.iconsSelected = item => {
+      $localStorage.icons.unshift(item);
+      console.log($localStorage.icons);
     }
+
+    // choseIcon.change = (item, url, type) => {
+    //   if(choseIcon.confirmed[item]) {
+    //     // console.log('add '+item);
+    //     $localStorage.icons.unshift(url);
+    //   } else {
+    //     // console.log('remove '+item);
+    //     $localStorage.icons.shift(url);
+    //   }
+    // }
 
 
     choseIcon.back = _ => {

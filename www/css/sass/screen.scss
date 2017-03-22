@@ -53,7 +53,15 @@ h2 {
      .button-go {
           font-weight: 900;
      }
+     .radio-icon {
+         opacity: 0.2!important;
+     }
+
+	 .item-radio input:checked + .radio-content .radio-icon {
+	    opacity: 1!important;
+	}
 }
+
 
 // .pic-custom {
 //      img {
