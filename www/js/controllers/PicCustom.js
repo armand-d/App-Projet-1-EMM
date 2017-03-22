@@ -84,10 +84,10 @@
 
                       var BC = eyeCenterY - right_eye_center.y;
                       var AB = Math.sqrt(Math.pow((eyeCenterX - right_eye_center.x), 2) + Math.pow((eyeCenterY - right_eye_center.y), 2));
-                      var cosA = BC/AB;
+                      var angle_A = BC/AB;
 
                       picCustom.context.translate(centerX, centerY);
-                      picCustom.context.rotate(-cosA);
+                      picCustom.context.rotate(-angle_A);
 
                       picCustom.context.drawImage(picCustom.imgs[key], -width/2, -height/2, width, height);
 
