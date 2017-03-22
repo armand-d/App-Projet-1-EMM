@@ -5,14 +5,22 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $base64, $ionicActionSheet, $localStorage){
+       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $ionicActionSheet, $localStorage){
             const picCustom = this;
             const imgUriTest = '/img/test.jpg';
             picCustom.dataFace = "";
             picCustom.bgImage = [];
             picCustom.imgs = [];
-            
+
             // à nettoyer object (ex : var glassesPos = {...})
+
+            console.log($localStorage.faceData);
+
+          //   var noseContourLowerMiddle = $localStorage.faceData.nose_contour_lower_middle;
+          //   var leftEye_leftCorner = $localStorage.faceData.left_eye_left_corner;
+          //   var rightEye_rightCorner = $localStorage.faceData.right_eye_right_corner;
+          //   var leftEyebrow_upperMiddle = $localStorage.faceData.left_eyebrow_upper_middle;
+
             var faceLandmark = $localStorage.faceLandmark;
             var faceAttributes = $localStorage.faceAttributes;
             console.log(faceLandmark);
@@ -142,5 +150,5 @@
               }
        };
 
-       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$base64', '$ionicActionSheet', '$localStorage'];
+       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$ionicActionSheet', '$localStorage'];
 })();
