@@ -127,6 +127,7 @@
                       buttonClicked: function(index) {
                          //   Canvas2Image.saveAsJPEG(picCustom.canvas, picCustom.canvas.width, picCustom.canvas.height);
                          //   return true;
+                         //
                       },
                       destructiveButtonClicked: function() {
                          $localStorage.$reset();

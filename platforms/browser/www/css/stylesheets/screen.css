@@ -117,12 +117,20 @@ h2 {
   margin: 0 auto;
   display: block;
 }
+/* line 53, ../sass/screen.scss */
 .chose-icon .button-go {
-     font-weight: 900;
+  font-weight: 900;
 }
 
+/* line 59, ../sass/screen.scss */
 .pic-custom img {
   margin: 3rem 0 0 0;
   width: 100%;
   box-shadow: 4px 4px 4px #999;
+}
+
+/* line 66, ../sass/screen.scss */
+canvas {
+  width: 300px;
+  height: 300px;
 }
