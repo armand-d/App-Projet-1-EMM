@@ -12,27 +12,18 @@
             picCustom.bgImage = [];
             picCustom.imgs = [];
 
-            // à nettoyer object (ex : var glassesPos = {...})
-
-            console.log($localStorage.faceData);
-
-          //   var noseContourLowerMiddle = $localStorage.faceData.nose_contour_lower_middle;
-          //   var leftEye_leftCorner = $localStorage.faceData.left_eye_left_corner;
-          //   var rightEye_rightCorner = $localStorage.faceData.right_eye_right_corner;
-          //   var leftEyebrow_upperMiddle = $localStorage.faceData.left_eyebrow_upper_middle;
-
             var faceLandmark = $localStorage.faceLandmark;
             var faceAttributes = $localStorage.faceAttributes;
-            console.log(faceLandmark);
-            console.log(faceAttributes);
+            // console.log(faceLandmark);
+            // console.log(faceAttributes);
 
-            // var leftEye_leftCorner = faceLandmark.left_eye_left_corner;
-            // var rightEye_rightCorner = faceLandmark.right_eye_right_corner;
-            // var leftEyebrow_upperMiddle = faceLandmark.left_eyebrow_upper_middle;
-
+            // pour le calcul de la hauteur des lunettes
+            var left_eye_bottom = faceLandmark.left_eye_bottom;
+            var left_eyebrow_upper_middle = faceLandmark.left_eyebrow_upper_middle;
+            //
+            // Calcul du centre entre les yeux
             var left_eye_center = faceLandmark.left_eye_center;
             var right_eye_center = faceLandmark.right_eye_center;
-            //
 
             var widtheyeX = right_eye_center.x - left_eye_center.x;
             var eyeCenterX = left_eye_center.x + (widtheyeX/2);
@@ -46,8 +37,7 @@
             }
             var heigtheyeY = val_1 - val_2;
             var eyeCenterY = val_2 + (heigtheyeY/2);
-
-
+            //
 
             picCustom.initCanvas = _ => {
 
@@ -81,28 +71,25 @@
             }
 
             picCustom.renderCanvas = _ => {
+                 picCustom.context.clearRect(0, 0, picCustom.canvas.width, picCustom.canvas.height);
                  picCustom.context.drawImage(picCustom.bgImage[0], 0, 0, 300, 300);
                  angular.forEach(picCustom.imgs, function(value, key){
                       // dessin des icons + position (et calcul de ratio à faire + rotation)
                       picCustom.context.save();
-                      // var centerX = leftEye_leftCorner.x + (rightEye_rightCorner.x - leftEye_leftCorner.x)/2;
-                      // var centerY = leftEyebrow_upperMiddle.y + 25;
                       var centerX = eyeCenterX;
                       var centerY = eyeCenterY;
-                      // var angle = (faceAttributes.headpose.pitch_angle*Math.PI/180)*faceAttributes.headpose.roll_angle;
-                      // console.log(faceAttributes.headpose.roll_angle*Math.PI/180);
-                      picCustom.context.fillStyle="#0050ff";
-                      picCustom.context.fillRect(left_eye_center.x-2,left_eye_center.y-2,4,4);
-                      picCustom.context.fillRect(right_eye_center.x-2,right_eye_center.y-2,4,4);
-                      picCustom.context.fillRect(centerX,centerY,2,2);
+
+                      var width = (right_eye_center.x - left_eye_center.x)*2;
+                      var height = (left_eye_bottom.y - left_eyebrow_upper_middle.y)*1.5;
+
+                      var BC = eyeCenterY - right_eye_center.y;
+                      var AB = Math.sqrt(Math.pow((eyeCenterX - right_eye_center.x), 2) + Math.pow((eyeCenterY - right_eye_center.y), 2));
+                      var cosA = BC/AB;
 
                       picCustom.context.translate(centerX, centerY);
-                      picCustom.context.rotate(faceAttributes.headpose.roll_angle*Math.PI/180);
-                      var centerXprim = (centerX*Math.cos(faceAttributes.headpose.roll_angle*Math.PI/180) + centerY*Math.sin(faceAttributes.headpose.roll_angle*Math.PI/180));
-                      var centerYprim = -centerX*Math.sin(faceAttributes.headpose.roll_angle*Math.PI/180)+centerY*Math.cos(faceAttributes.headpose.roll_angle*Math.PI/180);
-                      picCustom.context.translate(centerXprim, centerYprim);
+                      picCustom.context.rotate(-cosA);
 
-                      picCustom.context.drawImage(picCustom.imgs[key], left_eye_center.x - 40, eyeCenterY-25, (right_eye_center.x - (left_eye_center.x - 80)), 50);
+                      picCustom.context.drawImage(picCustom.imgs[key], -width/2, -height/2, width, height);
 
                       picCustom.context.restore();
                       //

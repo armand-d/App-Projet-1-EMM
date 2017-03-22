@@ -1,7 +1,7 @@
 (function(){
      'use strict';
 
-  var app = angular.module('funpics', ['ionic', 'ui.router', 'ngCordova', 'ngCookies', 'base64', 'ngStorage'])
+  var app = angular.module('funpics', ['ionic', 'ui.router', 'ngCordova', 'ngCookies', 'ngStorage'])
 
   .run(function($ionicPlatform, $http, $cookies) {
     $ionicPlatform.ready(function() {
