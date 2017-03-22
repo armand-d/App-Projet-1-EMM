@@ -26,10 +26,28 @@
             console.log(faceLandmark);
             console.log(faceAttributes);
 
-            var leftEye_leftCorner = faceLandmark.left_eye_left_corner;
-            var rightEye_rightCorner = faceLandmark.right_eye_right_corner;
-            var leftEyebrow_upperMiddle = faceLandmark.left_eyebrow_upper_middle;
+            // var leftEye_leftCorner = faceLandmark.left_eye_left_corner;
+            // var rightEye_rightCorner = faceLandmark.right_eye_right_corner;
+            // var leftEyebrow_upperMiddle = faceLandmark.left_eyebrow_upper_middle;
+
+            var left_eye_center = faceLandmark.left_eye_center;
+            var right_eye_center = faceLandmark.right_eye_center;
             //
+
+            var widtheyeX = right_eye_center.x - left_eye_center.x;
+            var eyeCenterX = left_eye_center.x + (widtheyeX/2);
+
+            if (right_eye_center.y > left_eye_center.y){  
+              var val_1 = right_eye_center.y;
+              var val_2 = left_eye_center.y;
+            } else {
+              var val_1 = left_eye_center.y;
+              var val_2 = right_eye_center.y;
+            }
+            var heigtheyeY = val_1 - val_2;
+            var eyeCenterY = val_2 + (heigtheyeY/2);
+
+
 
             picCustom.initCanvas = _ => {
 
@@ -38,8 +56,8 @@
 
                picCustom.initImgCanvas();
 
-               picCustom.canvas.width = picCustom.bgImg.width;
-               picCustom.canvas.height = picCustom.bgImg.height;
+               picCustom.canvas.width = 300;
+               picCustom.canvas.height = 300;
 
                picCustom.renderCanvas();
 
@@ -66,13 +84,27 @@
                  picCustom.context.drawImage(picCustom.bgImage[0], 0, 0, 300, 300);
                  angular.forEach(picCustom.imgs, function(value, key){
                       // dessin des icons + position (et calcul de ratio à faire + rotation)
-                      picCustom.context.beginPath();
+                      picCustom.context.save();
                       // var centerX = leftEye_leftCorner.x + (rightEye_rightCorner.x - leftEye_leftCorner.x)/2;
                       // var centerY = leftEyebrow_upperMiddle.y + 25;
-                      // picCustom.context.translate(centerX, centerY);
-                      picCustom.context.rotate((faceAttributes.headpose.roll_angle).toFixed(2));
-                      picCustom.context.drawImage(picCustom.imgs[key], leftEye_leftCorner.x - 20, leftEyebrow_upperMiddle.y, (rightEye_rightCorner.x - (leftEye_leftCorner.x - 40)), 50);
-                      picCustom.context.closePath();
+                      var centerX = eyeCenterX;
+                      var centerY = eyeCenterY;
+                      // var angle = (faceAttributes.headpose.pitch_angle*Math.PI/180)*faceAttributes.headpose.roll_angle;
+                      // console.log(faceAttributes.headpose.roll_angle*Math.PI/180);
+                      picCustom.context.fillStyle="#0050ff";
+                      picCustom.context.fillRect(left_eye_center.x-2,left_eye_center.y-2,4,4);
+                      picCustom.context.fillRect(right_eye_center.x-2,right_eye_center.y-2,4,4);
+                      picCustom.context.fillRect(centerX,centerY,2,2);
+
+                      picCustom.context.translate(centerX, centerY);
+                      picCustom.context.rotate(faceAttributes.headpose.roll_angle*Math.PI/180);
+                      var centerXprim = (centerX*Math.cos(faceAttributes.headpose.roll_angle*Math.PI/180) + centerY*Math.sin(faceAttributes.headpose.roll_angle*Math.PI/180));
+                      var centerYprim = -centerX*Math.sin(faceAttributes.headpose.roll_angle*Math.PI/180)+centerY*Math.cos(faceAttributes.headpose.roll_angle*Math.PI/180);
+                      picCustom.context.translate(centerXprim, centerYprim);
+
+                      picCustom.context.drawImage(picCustom.imgs[key], left_eye_center.x - 40, eyeCenterY-25, (right_eye_center.x - (left_eye_center.x - 80)), 50);
+
+                      picCustom.context.restore();
                       //
                  });
             }

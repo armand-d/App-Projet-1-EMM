@@ -73,5 +73,6 @@
     <icon src="resources/ios/icon/icon-small@2x.png" width="58" height="58"/>
     <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
   </platform>
-  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+  <allow-navigation href="http://192.168.21.33:8100"/>
+  <allow-navigation href="http://192.168.21.33:8101"/>
 </widget>
