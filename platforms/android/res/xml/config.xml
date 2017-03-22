@@ -37,8 +37,10 @@
     <author email="you@example.com" href="http://example.com/">
       Your Name Here
     </author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.21.33:8100" />
     <access origin="*" />
+    <allow-navigation href="http://192.168.21.33:8100" />
+    <allow-navigation href="http://192.168.21.33:8101" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
     <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />

@@ -122,15 +122,9 @@ h2 {
   font-weight: 900;
 }
 
-/* line 59, ../sass/screen.scss */
-.pic-custom img {
-  margin: 3rem 0 0 0;
-  width: 100%;
-  box-shadow: 4px 4px 4px #999;
-}
-
 /* line 66, ../sass/screen.scss */
 canvas {
-  width: 300px;
-  height: 300px;
+  margin: 0;
+  width: 100%;
+  box-shadow: 4px 4px 4px #999;
 }
