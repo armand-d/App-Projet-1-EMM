@@ -8,9 +8,7 @@
   function ChoseIconCtrl ($state, $rootScope, $localStorage, $cordovaFileTransfer) {
     const choseIcon = this;
     // Rempli le tableau avec les icons dans le localstorage
-    choseIcon.storage = $localStorage.$default({ icons: [] });
-
-    choseIcon.mustaches = [
+    choseIcon.data = [
       {
         id: 1,
         type: 'mustaches',
@@ -22,9 +20,7 @@
         type: 'mustaches',
         url:'img/icons/mustache_2.svg',
         checked: false
-      }
-    ];
-    choseIcon.hats = [
+      },
       {
         id: 3,
         type: 'hats',
@@ -36,9 +32,7 @@
         type: 'hats',
         url:'img/icons/chapeau_2.svg',
         checked: false
-      }
-    ];
-    choseIcon.glasses = [
+      },
       {
         id: 5,
         type: 'glasses',
@@ -53,15 +47,20 @@
       }
     ];
 
-    choseIcon.iconsSelected = item => {
-      $localStorage.icons.unshift(item);
-    }
 
     choseIcon.back = _ => {
       $state.go('picValidate');
     }
-
+    
+    $rootScope.icons = [];
     choseIcon.goPicCustom = _ => {
+
+      angular.forEach(choseIcon.data, function(value, key){
+        if(choseIcon.data[key].checked == true){
+            $rootScope.icons.unshift(choseIcon.data[key]);
+        }
+      });
+      console.log($rootScope.icons);
       $state.go('picCustom');
     }
 
