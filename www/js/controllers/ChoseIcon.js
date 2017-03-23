@@ -19,7 +19,7 @@
       },
       {
         id: 2,
-        type: 'moustaches',
+        type: 'mustaches',
         url:'img/icons/mustache_2.svg',
         checked: false
       }
@@ -55,19 +55,7 @@
 
     choseIcon.iconsSelected = item => {
       $localStorage.icons.unshift(item);
-      console.log($localStorage.icons);
     }
-
-    // choseIcon.change = (item, url, type) => {
-    //   if(choseIcon.confirmed[item]) {
-    //     // console.log('add '+item);
-    //     $localStorage.icons.unshift(url);
-    //   } else {
-    //     // console.log('remove '+item);
-    //     $localStorage.icons.shift(url);
-    //   }
-    // }
-
 
     choseIcon.back = _ => {
       $state.go('picValidate');
@@ -75,9 +63,6 @@
 
     choseIcon.goPicCustom = _ => {
       $state.go('picCustom');
-    //   choseIcon.imgURI = $rootScope.imgURI;
-    //   $rootScope.img = 'img/test.png';
-
     }
 
   };
