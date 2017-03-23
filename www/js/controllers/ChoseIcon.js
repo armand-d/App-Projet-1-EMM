@@ -47,6 +47,7 @@
       }
     ];
 
+
     choseIcon.back = _ => {
       $state.go('picValidate');
     }
