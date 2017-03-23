@@ -153,7 +153,7 @@
                  $state.go('home');
             }
 
-            picCustom.shareImg = _ => {
+            picCustom.save = _ => {
                  function onDeviceReady(){
                   var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
                  }
