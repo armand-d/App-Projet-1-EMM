@@ -79,10 +79,18 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.devgeeks.Canvas2ImagePlugin": {
+    "cordova-plugin-save-image": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-save-image"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.wbt11a.Canvas2ImagePlugin": {
         "source": {
             "type": "git",
-            "url": "https://github.com/devgeeks/Canvas2ImagePlugin.git",
+            "url": "https://github.com/wbt11a/Canvas2ImagePlugin.git",
             "subdir": "."
         },
         "is_top_level": true,

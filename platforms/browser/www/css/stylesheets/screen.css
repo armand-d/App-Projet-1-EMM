@@ -117,20 +117,29 @@ h2 {
   margin: 0 auto;
   display: block;
 }
+.radio-content {
+  position: relative;
+}
+.chose-icon .radio-icon {
+    opacity: 0.2!important;
+    visibility: visible;
+    top: 50%;
+    transform: translateY(-28%);
+}
+
+.chose-icon .item-radio input:checked + .radio-content .radio-icon {
+   opacity: 1!important;
+   visibility: visible;
+}
+
 /* line 53, ../sass/screen.scss */
 .chose-icon .button-go {
   font-weight: 900;
 }
 
-/* line 59, ../sass/screen.scss */
-.pic-custom img {
-  margin: 3rem 0 0 0;
-  width: 100%;
-  box-shadow: 4px 4px 4px #999;
-}
-
 /* line 66, ../sass/screen.scss */
 canvas {
-  width: 300px;
-  height: 300px;
+  margin: 0;
+  width: 100%;
+  box-shadow: 4px 4px 4px #999;
 }

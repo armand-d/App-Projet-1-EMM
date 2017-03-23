@@ -285,9 +285,17 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.devgeeks.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
-        "id": "org.devgeeks.Canvas2ImagePlugin.Canvas2ImagePlugin",
-        "pluginId": "org.devgeeks.Canvas2ImagePlugin",
+        "file": "plugins/cordova-plugin-save-image/www/SaveImage.js",
+        "id": "cordova-plugin-save-image.SaveImage",
+        "pluginId": "cordova-plugin-save-image",
+        "clobbers": [
+            "cordova.plugins.imagesaver"
+        ]
+    },
+    {
+        "file": "plugins/org.wbt11a.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
+        "id": "org.wbt11a.Canvas2ImagePlugin.Canvas2ImagePlugin",
+        "pluginId": "org.wbt11a.Canvas2ImagePlugin",
         "clobbers": [
             "window.canvas2ImagePlugin"
         ]
@@ -306,7 +314,8 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-file": "4.3.2",
     "cordova-plugin-file-transfer": "1.6.2",
-    "org.devgeeks.Canvas2ImagePlugin": "0.6.0"
+    "cordova-plugin-save-image": "0.2.4",
+    "org.wbt11a.Canvas2ImagePlugin": "0.7.1"
 }
 // BOTTOM OF METADATA
 });
