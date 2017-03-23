@@ -7,21 +7,20 @@
     <ion-content class="padding chose-icon">
 		<div class="list" >
             <div class="item item-divider">Moustaches</div>
-            <ion-checkbox ng-if="item.type == 'mustaches'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked">
+            <ion-radio ng-if="item.type == 'mustaches'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-checkbox>
+            </ion-radio>
             <div class="item item-divider">Chapeaux</div>
-            <ion-checkbox ng-if="item.type == 'hats'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked" ng-change="choseIcon.disable(item)">
+            <ion-radio ng-if="item.type == 'hats'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-checkbox>
+            </ion-radio>
             <div class="item item-divider">Lunettes</div>
-            <ion-checkbox ng-if="item.type == 'glasses'" ng-repeat="item in choseIcon.data" ng-model="item.checked" ng-checked="item.checked">
+            <ion-radio ng-if="item.type == 'glasses'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
-            </ion-checkbox>
+            </ion-radio>
         </div>
 		<div>
-			<button class="button button-block button-balanced button-go" ng-click="choseIcon.goPicCustom()">GO</button>
+            <button class="button button-block button-balanced button-go" ng-click="choseIcon.goPicCustom()">GO</button>
 		</div>
-        <pre ng-bind="choseIcon.data | json"></pre>
 	</ion-content>
 </ion-view>

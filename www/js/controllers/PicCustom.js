@@ -77,7 +77,7 @@
             picCustom.renderCanvas = _ => {
                  picCustom.context.clearRect(0, 0, picCustom.canvas.width, picCustom.canvas.height);
                  picCustom.context.drawImage(picCustom.bgImage[0], 0, 0, 300, 300);
-                 angular.forEach($localStorage.icons, function(value, key){
+                 angular.forEach($rootScope.icons, function(value, key){
 
                       var BC = eyeCenterY - right_eye_center.y;
                       var AB = Math.sqrt(Math.pow((eyeCenterX - right_eye_center.x), 2) + Math.pow((eyeCenterY - right_eye_center.y), 2));
@@ -154,6 +154,10 @@
 
             picCustom.shareImg = _ => {
 
+            }
+
+            picCustom.save = _ => {
+              
             }
 
             // ActionSheet

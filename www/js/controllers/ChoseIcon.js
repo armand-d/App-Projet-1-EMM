@@ -51,13 +51,27 @@
     choseIcon.back = _ => {
       $state.go('picValidate');
     }
+
+    choseIcon.selectIcon = (id, type) => {
+      angular.forEach(choseIcon.data, function(value, key){
+        if (value.id == id && value.type == type) {
+          value.checked = true;
+        } else if(value.type == type) {
+          value.checked = false;
+        }
+      });
+    }
+
+    choseIcon.resetIcons = _ => {
+      $('input[type="radio"]').prop('select', 'false');
+    }
     
     $rootScope.icons = [];
     choseIcon.goPicCustom = _ => {
 
       angular.forEach(choseIcon.data, function(value, key){
-        if(choseIcon.data[key].checked == true){
-            $rootScope.icons.unshift(choseIcon.data[key]);
+        if(value.checked == true){
+            $rootScope.icons.unshift(value);
         }
       });
       console.log($rootScope.icons);
