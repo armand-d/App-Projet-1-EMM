@@ -53,10 +53,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SaveImage\"><param name=\"ios-package\" value=\"SaveImage\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Canvas2ImagePlugin\"><param name=\"ios-package\" value=\"Canvas2ImagePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
@@ -68,13 +64,13 @@
                     "NSCameraUsageDescription": [
                         {
                             "xml": "<string> </string>",
-                            "count": 2
+                            "count": 1
                         }
                     ],
                     "NSPhotoLibraryUsageDescription": [
                         {
                             "xml": "<string> </string>",
-                            "count": 2
+                            "count": 1
                         }
                     ],
                     "NSLocationWhenInUseUsageDescription": [
@@ -118,11 +114,6 @@
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.myapp113591"
-        },
-        "cordova-plugin-save-image": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
         "org.wbt11a.Canvas2ImagePlugin": {
@@ -402,14 +393,6 @@
             "runs": true
         },
         {
-            "id": "cordova-plugin-save-image.SaveImage",
-            "file": "plugins/cordova-plugin-save-image/www/SaveImage.js",
-            "pluginId": "cordova-plugin-save-image",
-            "clobbers": [
-                "cordova.plugins.imagesaver"
-            ]
-        },
-        {
             "id": "org.wbt11a.Canvas2ImagePlugin.Canvas2ImagePlugin",
             "file": "plugins/org.wbt11a.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
             "pluginId": "org.wbt11a.Canvas2ImagePlugin",
@@ -429,7 +412,6 @@
         "cordova-plugin-statusbar": "2.2.1",
         "cordova-plugin-whitelist": "1.3.1",
         "ionic-plugin-keyboard": "2.2.1",
-        "cordova-plugin-save-image": "0.2.4",
         "org.wbt11a.Canvas2ImagePlugin": "0.7.1"
     }
 }

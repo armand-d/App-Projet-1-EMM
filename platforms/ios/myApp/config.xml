@@ -42,10 +42,6 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
-    <feature name="SaveImage">
-        <param name="ios-package" value="SaveImage" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="Canvas2ImagePlugin">
         <param name="ios-package" value="Canvas2ImagePlugin" />
         <param name="onload" value="true" />

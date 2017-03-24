@@ -6,7 +6,7 @@
           .service('FacePpAPI', FacePpAPI);
 
           function FacePpAPI($q, $http, $cordovaFileTransfer){
-               
+
             const API_KEY = 'jdo9Yoh3stTB9uGkvxmxs9Vt59XEmflq';
             const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
             const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/';

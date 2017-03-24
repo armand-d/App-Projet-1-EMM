@@ -79,14 +79,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-save-image": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-save-image"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "org.wbt11a.Canvas2ImagePlugin": {
         "source": {
             "type": "git",
@@ -94,6 +86,14 @@
             "subdir": "."
         },
         "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-add-swift-support": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-add-swift-support"
+        },
+        "is_top_level": false,
         "variables": {}
     }
 }

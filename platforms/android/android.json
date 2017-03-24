@@ -45,10 +45,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SaveImage\"><param name=\"android-package\" value=\"com.quiply.cordova.saveimage.SaveImage\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Canvas2ImagePlugin\"><param name=\"android-package\" value=\"org.devgeeks.Canvas2ImagePlugin.Canvas2ImagePlugin\" /></feature>",
                             "count": 1
                         }
@@ -60,7 +56,7 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 5
+                            "count": 4
                         }
                     ],
                     "application": [
@@ -102,9 +98,6 @@
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.myapp113591"
-        },
-        "cordova-plugin-save-image": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
         "org.wbt11a.Canvas2ImagePlugin": {
@@ -366,14 +359,6 @@
                 "cordova.plugins.Keyboard"
             ],
             "runs": true
-        },
-        {
-            "file": "plugins/cordova-plugin-save-image/www/SaveImage.js",
-            "id": "cordova-plugin-save-image.SaveImage",
-            "pluginId": "cordova-plugin-save-image",
-            "clobbers": [
-                "cordova.plugins.imagesaver"
-            ]
         },
         {
             "file": "plugins/org.wbt11a.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",

@@ -10,7 +10,6 @@
 
     picValidate.init = _ => {
       picValidate.imgURI = $localStorage.imgURI;
-
       return picValidate.imgURI;
     }
 

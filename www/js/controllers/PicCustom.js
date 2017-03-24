@@ -5,7 +5,7 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $localStorage, canvas2ImagePlugin){
+       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $localStorage){
             const picCustom = this;
             picCustom.bgImage = [];
             picCustom.imgs = [];
@@ -154,24 +154,13 @@
             }
 
             picCustom.save = _ => {
-                 function onDeviceReady(){
-                  var canvas2ImagePlugin = window.plugins.canvas2ImagePlugin;
-                 }
-                 // where myCanvasId == 'myCanvas' (the id of the canvas above)
-                function mySavingFunction() {
-                    canvas2ImagePlugin.saveImageDataToLibrary(
-                        function(msg){
-                           alert(msg);
-                        },
-                        function(err){
-                           alert(err);
-                        },
-                        picCustom.canvas
-                    );
-                }
+
+
             }
+
+
 
        };
 
-       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$localStorage', 'canvas2ImagePlugin'];
+       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$localStorage'];
 })();
