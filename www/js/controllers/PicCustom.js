@@ -7,6 +7,10 @@
 
      function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $localStorage){
           const picCustom = this;
+
+          picCustom.bgImg = [];
+          picCustom.icon = [];
+
           $state.reload();
 
           var faceLandmark = $rootScope.faceLandmark;
@@ -47,13 +51,10 @@
                picCustom.canvas = document.getElementById('tempCanvas');
                picCustom.context = picCustom.canvas.getContext('2d');
 
-               picCustom.initImgCanvas();
-
                picCustom.canvas.width = 300;
                picCustom.canvas.height = 300;
 
                picCustom.renderCanvas();
-
                // Permet de transformer le canvas en image
                $rootScope.img = picCustom.canvas.toDataURL("image/jpg");
           }
@@ -136,6 +137,8 @@
                });
           }
 
+          picCustom.initCanvas();
+
           picCustom.goHome = _ => {
                $rootScope.faceLandmark = null;
                $rootScope.faceAttributes = null;
@@ -145,8 +148,6 @@
           }
 
           picCustom.save = _ => {}
-
-          picCustom.initCanvas();
 
      }
 
