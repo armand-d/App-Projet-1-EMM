@@ -1,21 +1,21 @@
 <!-- Chose icon Content -->
 <ion-view view-title="Chose icon">
 	<ion-header-bar align-title="center" class="bar-positive">
-  		<i class="ion-chevron-left" ng-click="choseIcon.back()"></i>
+  		<!-- <i class="ion-chevron-left" ng-click="choseIcon.back()"></i> -->
   		<h1 class="title">funpic</h1>
 	</ion-header-bar>
     <ion-content class="padding chose-icon">
 		<div class="list" >
             <div class="item item-divider">Moustaches</div>
-            <ion-radio ng-if="item.type == 'mustaches'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
+            <ion-radio name="{{ item.type }}" ng-if="item.type == 'mustaches'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)" value="on">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
             </ion-radio>
             <div class="item item-divider">Chapeaux</div>
-            <ion-radio ng-if="item.type == 'hats'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
+            <ion-radio name="{{ item.type }}" ng-if="item.type == 'hats'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
             </ion-radio>
             <div class="item item-divider">Lunettes</div>
-            <ion-radio ng-if="item.type == 'glasses'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
+            <ion-radio name="{{ item.type }}" ng-if="item.type == 'glasses'" ng-repeat="item in choseIcon.data" ng-click="choseIcon.selectIcon(item.id, item.type)">
             	<img ng-src="{{ item.url }}" id="{{ item.id }}">
             </ion-radio>
         </div>

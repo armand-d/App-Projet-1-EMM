@@ -5,9 +5,9 @@
     .module('funpics')
     .controller('ChoseIconCtrl', ChoseIconCtrl);
 
-  function ChoseIconCtrl ($state, $rootScope, $localStorage, $cordovaFileTransfer) {
+  function ChoseIconCtrl ($state, $rootScope, $cordovaFileTransfer) {
     const choseIcon = this;
-    // Rempli le tableau avec les icons dans le localstorage
+
     choseIcon.data = [
       {
         id: 1,
@@ -48,12 +48,9 @@
     ];
 
 
-    choseIcon.back = _ => {
-      $state.go('picValidate');
-    }
 
     choseIcon.selectIcon = (id, type) => {
-      angular.forEach(choseIcon.data, function(value, key){
+      angular.forEach(choseIcon.data, function(value){
         if (value.id == id && value.type == type) {
           value.checked = true;
         } else if(value.type == type) {
@@ -62,24 +59,20 @@
       });
     }
 
-    choseIcon.resetIcons = _ => {
-      $('input[type="radio"]').prop('select', 'false');
-    }
-    
-    $rootScope.icons = [];
     choseIcon.goPicCustom = _ => {
-
-      angular.forEach(choseIcon.data, function(value, key){
+      $rootScope.icons = [];
+      angular.forEach(choseIcon.data, function(value){
         if(value.checked == true){
-            $rootScope.icons.unshift(value);
+          $rootScope.icons.unshift(value);
+          value.checked = false;
         }
       });
-      console.log($rootScope.icons);
-      $state.go('picCustom');
+
+      $state.go('picCustom', {}, { reload:true });
     }
 
   };
 
-  ChoseIconCtrl.$inject = ['$state', '$rootScope', '$localStorage', '$cordovaFileTransfer'];
+  ChoseIconCtrl.$inject = ['$state', '$rootScope', '$cordovaFileTransfer'];
 
 })();
