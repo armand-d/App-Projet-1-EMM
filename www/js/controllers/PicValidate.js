@@ -8,6 +8,14 @@
   function PicValidateCtrl ($state, $rootScope, FacePpAPI, $cordovaFileTransfer, $ionicLoading) {
     const picValidate = this;
 
+<<<<<<< HEAD
+=======
+    picValidate.init = _ => {
+      picValidate.imgURI = $localStorage.imgURI;
+      return picValidate.imgURI;
+    }
+
+>>>>>>> 8e911a0d31e7505bebcf819b3757db11e35558a9
     picValidate.goChoseIcon = _ => {
       $ionicLoading.show({
         template: 'Chargement ...'

@@ -5,7 +5,7 @@
        .module('funpics')
        .controller('PicCustomCtrl', PicCustomCtrl);
 
-       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $ionicActionSheet, $localStorage){
+       function PicCustomCtrl($cordovaFileTransfer, $state, $rootScope, FacePpAPI, $localStorage){
             const picCustom = this;
             $state.reload();
 
@@ -56,7 +56,21 @@
 
                picCustom.renderCanvas();
                // Permet de transformer le canvas en image
+<<<<<<< HEAD
                $rootScope.img = picCustom.canvas.toDataURL("image/jpg");
+=======
+               $localStorage.imgURI = picCustom.canvas.toDataURL("image/jpg");
+               // $localStorage.imgURI = $localStorage.imgURI.replace(/data:image\/jpeg;base64,/, '');
+               picCustom.url = $localStorage.imgURI;
+             console.log(picCustom.url);
+
+            }
+
+            picCustom.initImgCanvas = _ => {
+               picCustom.bgImg = new Image();
+               picCustom.bgImg.src = $localStorage.imgURI;
+               picCustom.bgImage.push(picCustom.bgImg);
+>>>>>>> 8e911a0d31e7505bebcf819b3757db11e35558a9
             }
 
             picCustom.renderCanvas = _ => {
@@ -97,7 +111,7 @@
                         var width = mouth_right_corner.x - mouth_left_corner.x;
                         var height = mouth_upper_lip_top.y - nose_contour_lower_middle.y;
 
-                        var centerX = mouth_upper_lip_top.x; 
+                        var centerX = mouth_upper_lip_top.x;
                         var centerY = nose_contour_lower_middle.y + (height/2);
 
                         picCustom.context.translate(centerX, centerY);
@@ -125,7 +139,7 @@
                         picCustom.icon = new Image();
                         picCustom.icon.src = value.url;
                         picCustom.context.drawImage(picCustom.icon, -(width*1.3)/2, -height*2, (width*1.3), height*1.3);
- 
+
                         picCustom.context.restore();
                       }
                  });
@@ -140,13 +154,22 @@
             }
 
             picCustom.save = _ => {
+<<<<<<< HEAD
               
             }
 
             picCustom.initCanvas();
+=======
+
+
+            }
+
+
+
+>>>>>>> 8e911a0d31e7505bebcf819b3757db11e35558a9
        };
 
-       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$ionicActionSheet', '$localStorage'];
+       PicCustomCtrl.$inject = ['$cordovaFileTransfer', '$state', '$rootScope', 'FacePpAPI', '$localStorage'];
 })();
 
 

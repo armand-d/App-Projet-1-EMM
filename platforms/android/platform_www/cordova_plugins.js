@@ -255,9 +255,9 @@ module.exports = [
         "runs": true
     },
     {
-        "id": "org.devgeeks.Canvas2ImagePlugin.Canvas2ImagePlugin",
-        "file": "plugins/org.devgeeks.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
-        "pluginId": "org.devgeeks.Canvas2ImagePlugin",
+        "file": "plugins/org.wbt11a.Canvas2ImagePlugin/www/Canvas2ImagePlugin.js",
+        "id": "org.wbt11a.Canvas2ImagePlugin.Canvas2ImagePlugin",
+        "pluginId": "org.wbt11a.Canvas2ImagePlugin",
         "clobbers": [
             "window.canvas2ImagePlugin"
         ]
@@ -265,18 +265,6 @@ module.exports = [
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{
-    "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-camera": "2.3.1",
-    "cordova-plugin-console": "1.0.5",
-    "cordova-plugin-device": "1.1.4",
-    "cordova-plugin-file": "4.3.2",
-    "cordova-plugin-file-transfer": "1.6.2",
-    "cordova-plugin-splashscreen": "4.0.1",
-    "cordova-plugin-statusbar": "2.2.1",
-    "cordova-plugin-whitelist": "1.3.1",
-    "ionic-plugin-keyboard": "2.2.1",
-    "org.devgeeks.Canvas2ImagePlugin": "0.6.0"
-};
+{}
 // BOTTOM OF METADATA
 });

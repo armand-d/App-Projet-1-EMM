@@ -15,7 +15,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <allow-navigation href="http://192.168.21.33:8100" />
+    <allow-navigation href="http://192.168.21.33:8101" />
+    <allow-navigation href="http://192.168.0.11:8100" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />

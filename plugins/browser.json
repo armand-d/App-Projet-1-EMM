@@ -34,7 +34,7 @@
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         },
-        "org.devgeeks.Canvas2ImagePlugin": {
+        "org.wbt11a.Canvas2ImagePlugin": {
             "PACKAGE_NAME": "com.ionicframework.myapp113591"
         }
     },

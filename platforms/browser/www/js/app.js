@@ -14,6 +14,7 @@
       }
     });
   })
+
   .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
     $stateProvider

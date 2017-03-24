@@ -79,13 +79,21 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.devgeeks.Canvas2ImagePlugin": {
+    "org.wbt11a.Canvas2ImagePlugin": {
         "source": {
             "type": "git",
-            "url": "https://github.com/devgeeks/Canvas2ImagePlugin.git",
+            "url": "https://github.com/wbt11a/Canvas2ImagePlugin.git",
             "subdir": "."
         },
         "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-add-swift-support": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-add-swift-support"
+        },
+        "is_top_level": false,
         "variables": {}
     }
 }

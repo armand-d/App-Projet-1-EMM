@@ -53,17 +53,31 @@ h2 {
      .button-go {
           font-weight: 900;
      }
+     .radio-icon {
+         opacity: 0.2!important;
+     }
+
+	 .item-radio input:checked + .radio-content .radio-icon {
+	    opacity: 1!important;
+	}
 }
 
-.pic-custom {
-     img {
-          margin: 3rem 0 0 0;
-          width: 100%;
-          box-shadow: 4px 4px 4px #999;
-     }
-}
+
+// .pic-custom {
+//      img {
+//           margin: 3rem 0 0 0;
+//           width: 100%;
+//           box-shadow: 4px 4px 4px #999;
+//      }
+// }
 
 canvas {
-	width: 300px;
-	height: 300px;
+	margin: 0;
+    width: 100%;
+    box-shadow: 4px 4px 4px #999;
+}
+
+.ion-close-circled {
+	text-align: center;
+    font-size: 20px;
 }

@@ -121,16 +121,24 @@ h2 {
 .chose-icon .button-go {
   font-weight: 900;
 }
+/* line 56, ../sass/screen.scss */
+.chose-icon .radio-icon {
+  opacity: 0.2 !important;
+}
+/* line 60, ../sass/screen.scss */
+.chose-icon .item-radio input:checked + .radio-content .radio-icon {
+  opacity: 1 !important;
+}
 
-/* line 59, ../sass/screen.scss */
-.pic-custom img {
-  margin: 3rem 0 0 0;
+/* line 74, ../sass/screen.scss */
+canvas {
+  margin: 0;
   width: 100%;
   box-shadow: 4px 4px 4px #999;
 }
 
-/* line 66, ../sass/screen.scss */
-canvas {
-  width: 300px;
-  height: 300px;
+/* line 80, ../sass/screen.scss */
+.ion-close-circled {
+  text-align: center;
+  font-size: 20px;
 }
