@@ -12,7 +12,7 @@
         const API_SECRET = '_0kMlb8z7tEJovAievoGrHZqfno5kNF7';
         const API_ENDPOINT = 'https://api-us.faceplusplus.com/facepp/v3/';
 
-        // ----- DETECTION -----
+        // ----- DETECTION ----- //
 
         this.detect = function(image_url){
 

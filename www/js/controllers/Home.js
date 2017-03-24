@@ -5,7 +5,7 @@
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-    function HomeCtrl ($cordovaCamera, $state, $rootScope) {
+    function HomeCtrl ($cordovaCamera, $state, $rootScope, $ionicPopup) {
         const home = this;
 
         home.takePicture = _ => {
@@ -26,9 +26,11 @@
                 $rootScope.img = "data:image/jpeg;base64," + imageData;
                 $state.go('picValidate');
             }, function(err) {
-                alert("La photo n'a pas pu être prise");
+                home.showAlert("La photo n'a pas pu être prise");
             });
         }
+
+
 
         home.takeLibrary = _ => {
 
@@ -48,11 +50,19 @@
                 $rootScope.img = "data:image/jpeg;base64," + imageData;
                 $state.go('picValidate');
             }, function(err) {
-                alert("Nous n'avons pas pu accéder à votre librairie");
+                home.showAlert("Nous n'avons pas pu accéder à votre librairie");
             });
         }
+
+        home.showAlert = template => {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Funpics',
+                template: template
+            });
+        }
+
     };
 
-    HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope'];
+    HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', '$ionicPopup'];
 
 })();

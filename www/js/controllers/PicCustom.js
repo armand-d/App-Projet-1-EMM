@@ -16,6 +16,7 @@
           var faceLandmark = $rootScope.faceLandmark;
           var faceAttributes = $rootScope.faceAttributes;
 
+          // glasses
           var left_eye_bottom = faceLandmark.left_eye_bottom;
           var left_eyebrow_upper_middle = faceLandmark.left_eyebrow_upper_middle;
 
@@ -35,10 +36,10 @@
           var heigtheyeY = val_1 - val_2;
           var eyeCenterY = val_2 + (heigtheyeY/2);
 
-          // moustache
+          // moustaches
           var mouth_upper_lip_top = faceLandmark.mouth_upper_lip_top;
           var nose_contour_lower_middle = faceLandmark.nose_contour_lower_middle;
-          // pour la largeur
+
           var mouth_right_corner = faceLandmark.mouth_right_corner;
           var mouth_left_corner = faceLandmark.mouth_left_corner;
 
