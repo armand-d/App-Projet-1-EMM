@@ -1,17 +1,21 @@
 (function(){
-  'use-strict';
+    'use-strict';
 
-  angular
+    angular
     .module('funpics')
     .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl ($cordovaCamera, $state, $rootScope, $localStorage) {
-    const home = this;
-    $localStorage.$reset();
-    home.storage = $localStorage.$default({ imgURI : '' , faceToken : '', faceLandmark : '' });
+    function HomeCtrl ($cordovaCamera, $state, $rootScope, $localStorage) {
+        const home = this;
 
-    home.takePicture = _ => {
-    	options = {
+        // Le localStorage est effacé quand l'utilisateur se retrouve sur la page d'accueil
+        $localStorage.$reset();
+        // Création du contenu par défaut du localstorage
+        home.storage = $localStorage.$default({ imgURI : '' , faceToken : '', faceLandmark : '' });
+
+        // Fonction pour prendre une photo
+        home.takePicture = _ => {
+            options = {
             quality         : 75,
             destinationType : Camera.DestinationType.DATA_URL,
             allowEdit       : true,
@@ -25,16 +29,17 @@
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            home.storage.imgURI = "data:image/jpeg;base64," + imageData;
-            $state.go('picValidate');
-        }, function(err) {
-            // alert('error');
-        });
-    }
+                // Stockage de l'image dans le localstorage pour la récupérer dans le picValidate
+                home.storage.imgURI = "data:image/jpeg;base64," + imageData;
+                $state.go('picValidate');
+            }, function(err) {
+                alert("La photo n'a pas pu être prise.");
+            });
+        }
 
-    home.takeLibrary = _ => {
-
-        options = {
+        // Fonction pour le choix d'une photo dans la librairie du téléphone
+        home.takeLibrary = _ => {
+            options = {
             quality         : 75,
             destinationType : Camera.DestinationType.DATA_URL,
             allowEdit       : true,
@@ -47,15 +52,17 @@
         };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
-            home.storage.imgURI = "data:image/jpeg;base64," + imageData;
-            $state.go('picValidate');
-        }, function(err) {
-            // alert('error');
-        });
-    }
+                // Stockage de l'image dans le localstorage pour la récupérer dans le picValidate
+                home.storage.imgURI = "data:image/jpeg;base64," + imageData;
+                $state.go('picValidate');
+            }, function(err) {
+                alert("Nous n'avons pas pu accéder à votre librairie");
+            });
+        }
 
-  };
+    };
 
-  HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', '$localStorage'];
+    // Injection des dépendances utilisées dans le controller
+    HomeCtrl.$inject = ['$cordovaCamera', '$state', '$rootScope', '$localStorage'];
 
 })();
